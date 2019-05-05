@@ -6,6 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Продукты - Молоко.ру</title>
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="products.css">
+
 </head>
 <body>
 
@@ -18,31 +22,31 @@
 
 <header class="header">
     <div class="wr960">
-        <a href="#"><img src="" alt="logo"></a>
+        <a href="#"><img class="logo" src="images/logo.png" alt="logo"></a>
     </div>
 </header>
 
 <nav class="nav">
     <div class="wr960">
         <div class="nav-links">
-            <a href="#" class="nav-link">Главная</a>
-            <a href="#" class="nav-link">Товары</a>
-            <a href="#" class="nav-link">Продавцы</a>
-            <a href="#" class="nav-link">О сайте</a>
-            <a href="#" class="nav-link">F.A.Q</a>
-            <a href="#" class="nav-link">Контакты</a>
+            <a href="#" class="nav-item">Главная</a>
+            <a href="#" class="nav-item active">Товары</a>
+            <a href="#" class="nav-item">Продавцы</a>
+            <a href="#" class="nav-item">О сайте</a>
+            <a href="#" class="nav-item">F.A.Q</a>
+            <a href="#" class="nav-item">Контакты</a>
         </div>
 
-        <a class="nav-cart" href="#">Корзина</a>
+        <a class="nav-item nav-cart" href="#">Корзина (3)</a>
     </div>
 </nav>
 
 <div class="breadcrumbs">
-    <a class="breadcrumb-item" href="">Главная</a>
-    <a class="breadcrumb-item" href="">Товары</a>
+    <a class="breadcrumb-item first" href="">Главная</a>
+    <span class="breadcrumb-item last">Товары</span>
 </div>
 
-<h1 class="page-title">Товары</h1>
+<h1 class="page-title wr960">Товары</h1>
 
 <main class="content">
     <div class="wr960">
@@ -70,76 +74,95 @@
             </div>
         </div>
         <div class="products">
-            <section class="product" style="border: 1px solid black">
-                <img class="product-image" src="" alt="image">
-                <span class="product-title">Молоко пастеризованное 3%, 1л</span>
-                <span class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</span>
+
+            <section class="product">
+                <img class="product-image" src="/images/milk.png" alt="image">
+                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span>Продавец:</span> <a href="#">Галиева Екатерина</a></div>
-                    <span class="seller-locality">Село Слюсарёво, МО</span>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
-                <span class="product-price">230 руб.</span>
+                <div class="product-price">230 руб.</div>
                 <div class="product-controls">
                     <div class="product-quantity stepper">
-                        <span class="stepper-minus">-</span>
+                        <span class="stepper-minus stepper-control">–</span>
                         <span class="stepper-number">1</span>
-                        <span class="stepper-plus">+</span>
+                        <span class="stepper-plus stepper-control">+</span>
                     </div>
-                    <button class="add-to-cart-button">В корзину</button>
+                    <span class="add-to-cart-button blue-button">В корзину</span>
                 </div>
             </section>
-            <section class="product" style="border: 1px solid black">
-                <img class="product-image" src="" alt="image">
-                <span class="product-title">Молоко пастеризованное 3%, 1л</span>
-                <span class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</span>
+            <section class="product">
+                <img class="product-image" src="/images/milk.png" alt="image">
+                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span>Продавец:</span> <a href="#">Галиева Екатерина</a></div>
-                    <span class="seller-locality">Село Слюсарёво, МО</span>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
-                <span class="product-price">230 руб.</span>
+                <div class="product-price">230 руб.</div>
                 <div class="product-controls">
                     <div class="product-quantity stepper">
-                        <span class="stepper-minus">-</span>
+                        <span class="stepper-minus stepper-control">–</span>
                         <span class="stepper-number">1</span>
-                        <span class="stepper-plus">+</span>
+                        <span class="stepper-plus stepper-control">+</span>
                     </div>
-                    <button class="add-to-cart-button">В корзину</button>
+                    <span class="add-to-cart-button blue-button">В корзину</span>
                 </div>
             </section>
-            <section class="product" style="border: 1px solid black">
-                <img class="product-image" src="" alt="image">
-                <span class="product-title">Молоко пастеризованное 3%, 1л</span>
-                <span class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</span>
+            <section class="product">
+                <img class="product-image" src="/images/milk.png" alt="image">
+                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span>Продавец:</span> <a href="#">Галиева Екатерина</a></div>
-                    <span class="seller-locality">Село Слюсарёво, МО</span>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
-                <span class="product-price">230 руб.</span>
+                <div class="product-price">230 руб.</div>
                 <div class="product-controls">
                     <div class="product-quantity stepper">
-                        <span class="stepper-minus">-</span>
+                        <span class="stepper-minus stepper-control">–</span>
                         <span class="stepper-number">1</span>
-                        <span class="stepper-plus">+</span>
+                        <span class="stepper-plus stepper-control">+</span>
                     </div>
-                    <button class="add-to-cart-button">В корзину</button>
+                    <span class="add-to-cart-button blue-button">В корзину</span>
                 </div>
             </section>
-            <section class="product" style="border: 1px solid black">
-                <img class="product-image" src="" alt="image">
-                <span class="product-title">Молоко пастеризованное 3%, 1л</span>
-                <span class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</span>
+            <section class="product">
+                <img class="product-image" src="/images/milk.png" alt="image">
+                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span>Продавец:</span> <a href="#">Галиева Екатерина</a></div>
-                    <span class="seller-locality">Село Слюсарёво, МО</span>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
-                <span class="product-price">230 руб.</span>
+                <div class="product-price">230 руб.</div>
                 <div class="product-controls">
                     <div class="product-quantity stepper">
-                        <span class="stepper-minus">-</span>
+                        <span class="stepper-minus stepper-control">–</span>
                         <span class="stepper-number">1</span>
-                        <span class="stepper-plus">+</span>
+                        <span class="stepper-plus stepper-control">+</span>
                     </div>
-                    <button class="add-to-cart-button">В корзину</button>
+                    <span class="add-to-cart-button blue-button">В корзину</span>
+                </div>
+            </section>
+            <section class="product">
+                <img class="product-image" src="/images/milk.png" alt="image">
+                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
+                <div class="seller">
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-locality">Село Слюсарёво, МО</div>
+                </div>
+                <div class="product-price">230 руб.</div>
+                <div class="product-controls">
+                    <div class="product-quantity stepper">
+                        <span class="stepper-minus stepper-control">–</span>
+                        <span class="stepper-number">1</span>
+                        <span class="stepper-plus stepper-control">+</span>
+                    </div>
+                    <span class="add-to-cart-button blue-button">В корзину</span>
                 </div>
             </section>
 
@@ -147,9 +170,9 @@
     </div>
 </main>
 
-<footer>
+<footer class="footer">
     <div class="wr960">
-        <div class="links">
+        <div class="footer-links">
             <a href="#" class="footer-link">Услуги</a>
             <a href="#" class="footer-link">Условия сотридничества</a>
             <a href="#" class="footer-link">Лицензия</a>
