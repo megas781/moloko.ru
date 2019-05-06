@@ -31,12 +31,24 @@
 <nav class="nav">
     <div class="wr960">
         <div class="nav-links">
-            <a href="#" class="nav-item">Главная</a>
-            <a href="#" class="nav-item active">Товары</a>
-            <a href="#" class="nav-item">Продавцы</a>
-            <a href="#" class="nav-item">О сайте</a>
-            <a href="#" class="nav-item">F.A.Q</a>
-            <a href="#" class="nav-item">Контакты</a>
+
+            <?php
+            $navItems = [
+                ['main', 'Главная', 'http://moloko.glebkalachev.ru'],
+                ['products', 'Товары', 'http://moloko.glebkalachev.ru/products/'],
+                ['sellers', 'Продавцы', 'http://moloko.glebkalachev.ru/sellers'],
+                ['about', 'О сайте', '#'],
+                ['faq', 'F.A.Q', '#'],
+                ['contacts', 'Контакты', '#']
+            ];
+
+            for ($i = 0; $i < count($navItems); $i++) {
+                $item = $navItems[$i];
+
+                echo '<a href="'. $item[2] .'" class="nav-item '. ($params['page_id'] == $item[0] ? 'active' : '') .'">'.$item[1].'</a>';
+            }
+            ?>
+
         </div>
 
         <a class="nav-item nav-cart" href="#">Корзина (3)</a>
@@ -48,7 +60,7 @@
     <span class="breadcrumb-item last">Товары</span>
 </div>
 
-<h1 class="page-title wr960">Товары</h1>
+<h1 class="page-title wr960"><?php echo $params['page_title'] ?></h1>
 
 <main class="content">
     <div class="wr960">

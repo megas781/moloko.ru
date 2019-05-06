@@ -1,10 +1,18 @@
 <?php
+
 require_once '../App.php';
 
-//При вызове header'a обязтельно нужно указать путь до .css файла, который нужно подключить
-$stylePath = HTTP_ROOT . 'products/products.css';
+$metainfo = [
+    'style_path' => HTTP_ROOT . 'products/products.css',
+    'page_id' => 'products',
+    'page_title' => 'Товары'
+];
 
-$APP->includeHeaderWithParams(['style_path' => $stylePath]);
+
+//При вызове header'a обязтельно нужно указать путь до .css файла, который нужно подключить
+
+
+$APP->includeHeaderWithParams($metainfo);
 
 ?>
         <div class="search-form" action="" >

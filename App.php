@@ -8,7 +8,6 @@ class App {
     protected static $_instance;
 
 
-
     private function __construct()
     {
 
