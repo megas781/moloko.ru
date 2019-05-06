@@ -1,14 +1,17 @@
 <?php
 require_once '../App.php';
 
-//При вызове header'a обязтельно нужно указать путь до .css файла, который нужно подключить
-$stylePath = HTTP_ROOT . 'products/products.css';
+$metainfo = [
+    'style_path' => HTTP_ROOT . 'sellers/sellers.css',
+    'page_id' => 'sellers',
+    'page_title' => 'Продавцы'
+];
 
-$APP->includeHeaderWithParams(['style_path' => $stylePath]);
+$APP->includeHeaderWithParams($metainfo);
 
 ?>
 
-
+тут продают!!
 
 
 <?php $APP->includeFooterWithParams(); ?>

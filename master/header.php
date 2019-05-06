@@ -24,7 +24,7 @@
 
 <header class="header">
     <div class="wr960">
-        <a href="#"><img class="logo" src="../images/logo.png" alt="logo"></a>
+        <a href="<?php echo HTTP_ROOT ?>"><img class="logo" src="../images/logo.png" alt="logo"></a>
     </div>
 </header>
 
@@ -36,10 +36,10 @@
             $navItems = [
                 ['main', 'Главная', 'http://moloko.glebkalachev.ru'],
                 ['products', 'Товары', 'http://moloko.glebkalachev.ru/products/'],
-                ['sellers', 'Продавцы', 'http://moloko.glebkalachev.ru/sellers'],
-                ['about', 'О сайте', '#'],
-                ['faq', 'F.A.Q', '#'],
-                ['contacts', 'Контакты', '#']
+                ['sellers', 'Продавцы', 'http://moloko.glebkalachev.ru/sellers/'],
+                ['about', 'О сайте', 'http://moloko.glebkalachev.ru/about/'],
+                ['faq', 'F.A.Q', 'http://moloko.glebkalachev.ru/faq/'],
+                ['contacts', 'Контакты', 'http://moloko.glebkalachev.ru/contacts/']
             ];
 
             for ($i = 0; $i < count($navItems); $i++) {
@@ -51,7 +51,7 @@
 
         </div>
 
-        <a class="nav-item nav-cart" href="#">Корзина (3)</a>
+        <a class="nav-item nav-cart <?php echo ($params['page_id'] == 'cart' ? 'active' : '') ?>" href="http://moloko.glebkalachev.ru/cart/">Корзина (3)</a>
     </div>
 </nav>
 

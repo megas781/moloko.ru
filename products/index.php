@@ -8,10 +8,6 @@ $metainfo = [
     'page_title' => 'Товары'
 ];
 
-
-//При вызове header'a обязтельно нужно указать путь до .css файла, который нужно подключить
-
-
 $APP->includeHeaderWithParams($metainfo);
 
 ?>
