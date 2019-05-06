@@ -1,3 +1,8 @@
+.content {
+    padding: 0 32px;
+    padding-bottom: 60px;
+}
+
 .search-form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -79,40 +84,7 @@
 .product-quantity {
 
 }
-.stepper {
-    background-color: #e3e3e3;
-    font-size: 24px;
-    user-select: none;
-}
-.stepper > * {
-    display: inline-block;
-    padding: 0 15px;
-    line-height: 44px;
-}
-.stepper-minus {
 
-}
-.stepper-plus {
-
-}
-.stepper-control:hover {
-    background-color: #dbdbdb;
-    cursor: pointer;
-}
-
-.blue-button {
-    background-color: #249cd3;
-    font-size: 16px;
-    font-family: "Roboto Condensed";
-    color: white;
-    padding: 0 16px;
-    line-height: 44px;
-    user-select: none;
-    cursor: pointer;
-}
-.blue-button:hover {
-    background-color: #2390c2;
-}
 .add-to-cart-button {
 
 }

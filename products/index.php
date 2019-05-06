@@ -1,55 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Продукты - Молоко.ру</title>
+<?php
+require_once '../App.php';
 
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="products.css">
+//При вызове header'a обязтельно нужно указать путь до .css файла, который нужно подключить
+$stylePath = HTTP_ROOT . 'products/products.css';
 
-</head>
-<body>
+$APP->includeHeaderWithParams(['style_path' => $stylePath]);
 
-<div class="top-bar">
-    <div class="wr960">
-        <span class="top-bar-item">г. Москва, 5-ая Парковая 39</span>
-        <span class="top-bar-item">Тех. Поддержка: 8 (495) 228-31-31</span>
-    </div>
-</div>
-
-<header class="header">
-    <div class="wr960">
-        <a href="#"><img class="logo" src="images/logo.png" alt="logo"></a>
-    </div>
-</header>
-
-<nav class="nav">
-    <div class="wr960">
-        <div class="nav-links">
-            <a href="#" class="nav-item">Главная</a>
-            <a href="#" class="nav-item active">Товары</a>
-            <a href="#" class="nav-item">Продавцы</a>
-            <a href="#" class="nav-item">О сайте</a>
-            <a href="#" class="nav-item">F.A.Q</a>
-            <a href="#" class="nav-item">Контакты</a>
-        </div>
-
-        <a class="nav-item nav-cart" href="#">Корзина (3)</a>
-    </div>
-</nav>
-
-<div class="breadcrumbs">
-    <a class="breadcrumb-item first" href="">Главная</a>
-    <span class="breadcrumb-item last">Товары</span>
-</div>
-
-<h1 class="page-title wr960">Товары</h1>
-
-<main class="content">
-    <div class="wr960">
+?>
         <div class="search-form" action="" >
             <div class="select-input">
                 <label for="locality">Населённый пункт:</label>
@@ -165,25 +122,5 @@
                     <span class="add-to-cart-button blue-button">В корзину</span>
                 </div>
             </section>
-
         </div>
-    </div>
-</main>
-
-<footer class="footer">
-    <div class="wr960">
-        <div class="footer-links">
-            <a href="#" class="footer-link">Услуги</a>
-            <a href="#" class="footer-link">Условия сотридничества</a>
-            <a href="#" class="footer-link">Лицензия</a>
-            <a href="#" class="footer-link">О нас</a>
-            <a href="#" class="footer-link">F.A.Q</a>
-            <a href="#" class="footer-link">Контакты</a>
-        </div>
-        <span class="copyright">© 2019 ООО «Молочный Мир»</span>
-    </div>
-</footer>
-
-
-</body>
-</html>
+            <?php $APP->includeFooterWithParams(); ?>
