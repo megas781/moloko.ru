@@ -22,3 +22,9 @@
     color: white;
 
 }
+
+@media print {
+    .footer {
+        display: none;
+    }
+}

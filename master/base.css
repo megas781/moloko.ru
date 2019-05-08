@@ -53,3 +53,31 @@ body {
 .blue-button:hover {
     background-color: #2390c2;
 }
+
+
+@media print {
+    body {
+        font-family: "Times New Roman";
+        font-size: 20px;
+    }
+    
+    @page  {
+        /*margin-left: 3cm;*/
+        /*margin-right: 2cm;*/
+    }
+
+    p {
+        /*Минимальное кол-во строк при разрыве параграфа*/
+        orphans: 4;
+        widows: 4;
+    }
+
+    p a {
+        text-decoration: none;
+        color: black;
+    }
+    p a:after {
+        content: " (" attr(href) ")";
+    }
+
+}
