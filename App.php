@@ -36,4 +36,3 @@ class App {
 }
 
 $APP = App::getInstance();
-
