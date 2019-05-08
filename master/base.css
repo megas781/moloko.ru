@@ -41,6 +41,7 @@ body {
 }
 
 .blue-button {
+    display: inline-block;
     background-color: #249cd3;
     font-size: 16px;
     font-family: "Roboto Condensed";
@@ -49,6 +50,7 @@ body {
     line-height: 44px;
     user-select: none;
     cursor: pointer;
+    text-decoration: none;
 }
 .blue-button:hover {
     background-color: #2390c2;
