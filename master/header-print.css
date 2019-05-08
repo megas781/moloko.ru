@@ -1,0 +1,15 @@
+@media print {
+    .nav {
+        display: none;
+    }
+    .breadcrumbs {
+        display: none;
+    }
+    .header {
+        display: none;
+    }
+
+    body {
+        font-family: "Times New Roman";
+    }
+}
