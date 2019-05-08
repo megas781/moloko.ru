@@ -122,3 +122,19 @@
 }
 
 
+@media print {
+    .nav {
+        display: none;
+    }
+    .breadcrumbs {
+        display: none;
+    }
+    .header {
+        display: none;
+    }
+    .top-bar {
+        margin-bottom: 42px;
+        font-family: "Times New Roman";
+    }
+
+}
