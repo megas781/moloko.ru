@@ -40,7 +40,7 @@ $APP->includeHeaderWithParams($metainfo);
                 <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
                     <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
                 <div class="product-price">230 руб.</div>
@@ -58,7 +58,7 @@ $APP->includeHeaderWithParams($metainfo);
                 <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
                     <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
                 <div class="product-price">230 руб.</div>
@@ -76,7 +76,7 @@ $APP->includeHeaderWithParams($metainfo);
                 <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
                     <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
                 <div class="product-price">230 руб.</div>
@@ -94,7 +94,7 @@ $APP->includeHeaderWithParams($metainfo);
                 <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
                     <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
                 <div class="product-price">230 руб.</div>
@@ -112,7 +112,7 @@ $APP->includeHeaderWithParams($metainfo);
                 <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
                     <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
                 <div class="product-price">230 руб.</div>
@@ -125,5 +125,6 @@ $APP->includeHeaderWithParams($metainfo);
                     <span class="add-to-cart-button blue-button">В корзину</span>
                 </div>
             </section>
+
         </div>
             <?php $APP->includeFooterWithParams(); ?>

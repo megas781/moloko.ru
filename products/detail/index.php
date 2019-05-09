@@ -49,7 +49,7 @@ $APP->includeHeaderWithParams($metainfo);
 <section class="seller">
     <img class="seller-avatar" src="<?php echo HTTP_ROOT . '/images/seller1.png' ?>" alt="">
     <div class="seller-info">
-        <h2>Галиева Екатерина</h2>
+        <a class="seller-name-link" href="/sellers/detail/"><h2>Галиева Екатерина</h2></a>
         <table>
             <tr>
                 <td>Телефон:</td>

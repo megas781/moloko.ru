@@ -82,7 +82,9 @@ textarea {
     text-decoration: none;
     text-align: center;
     border: none;
+    outline: none;
 }
+
 .blue-button:hover {
     background-color: #2390c2;
 }

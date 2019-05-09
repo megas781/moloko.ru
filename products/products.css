@@ -10,6 +10,11 @@
     padding-bottom: 16px;
 }
 
+.select-input {
+    display: flex;
+    align-items: center;
+}
+
 .search-input {
     display: flex;
     flex-direction: row;

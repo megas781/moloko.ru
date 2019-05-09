@@ -50,7 +50,13 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
+    position: relative;
 }
+
+.seller-name-link {
+
+}
+
 .seller-avatar {
     width: 260px;
     height: 260px;
@@ -59,6 +65,7 @@
 .seller-info {
     padding: 0 16px;
 }
+
 
 
 .locality-title {
