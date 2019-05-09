@@ -15,7 +15,6 @@ $APP->includeHeaderWithParams($metainfo);
 
 <section class="product">
 
-
     <img class="product-image" src="/images/milk.png" alt="image">
 
     <div class="product-info">

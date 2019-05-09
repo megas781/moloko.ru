@@ -10,8 +10,116 @@ $metainfo = [
 $APP->includeHeaderWithParams($metainfo);
 
 ?>
-<h2>Тут собирается весь хлам, что ты хочешь купить</h2>
 
-<p>Покупай больше, потому что у нас много промо-акций, которые не оставят тебя равнодушным. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aperiam autem cum doloremque ducimus eaque est fugit, incidunt ipsa itaque, laboriosam maxime modi natus neque non officia optio possimus quibusdam, quis sapiente tenetur voluptatem. Adipisci cumque doloribus fuga ipsum, itaque, iusto molestiae nostrum officia sed sit vitae, voluptatem voluptatum.</p>
+<section class="product">
+
+    <img class="product-image" src="/images/milk.png" alt="image">
+
+    <div class="product-info">
+        <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
+        <div class="seller">
+            <div class="seller-name"><span class="selle-name-label">Продавец:</span><a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+            <div class="seller-locality">Село Слюсарёво, МО</div>
+        </div>
+    </div>
+
+    <div class="product-controls">
+        <div>
+            <div class="product-price-per-item">230 руб/шт</div>
+            <div class="product-total-price">230 руб</div>
+
+            <div class="product-quantity stepper">
+                <span class="stepper-minus stepper-control">–</span>
+                <span class="stepper-number">1</span>
+                <span class="stepper-plus stepper-control">+</span>
+            </div>
+        </div>
+
+        <div class="delete-button"></div>
+    </div>
+</section>
+
+
+<section class="product">
+
+    <img class="product-image" src="/images/milk.png" alt="image">
+
+    <div class="product-info">
+        <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
+        <div class="seller">
+            <div class="seller-name"><span class="selle-name-label">Продавец:</span><a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+            <div class="seller-locality">Село Слюсарёво, МО</div>
+        </div>
+    </div>
+
+    <div class="product-controls">
+        <div>
+            <div class="product-price-per-item">230 руб/шт</div>
+            <div class="product-total-price">230 руб</div>
+
+            <div class="product-quantity stepper">
+                <span class="stepper-minus stepper-control">–</span>
+                <span class="stepper-number">1</span>
+                <span class="stepper-plus stepper-control">+</span>
+            </div>
+        </div>
+
+        <div class="delete-button"></div>
+    </div>
+</section>
+
+
+<section class="product">
+
+    <img class="product-image" src="/images/milk.png" alt="image">
+
+    <div class="product-info">
+        <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
+        <div class="seller">
+            <div class="seller-name"><span class="selle-name-label">Продавец:</span><a class="seller-name-link" href="#">Галиева Екатерина</a></div>
+            <div class="seller-locality">Село Слюсарёво, МО</div>
+        </div>
+    </div>
+
+    <div class="product-controls">
+        <div>
+            <div class="product-price-per-item">230 руб/шт</div>
+            <div class="product-total-price">230 руб</div>
+
+            <div class="product-quantity stepper">
+                <span class="stepper-minus stepper-control">–</span>
+                <span class="stepper-number">1</span>
+                <span class="stepper-plus stepper-control">+</span>
+            </div>
+        </div>
+
+        <div class="delete-button"></div>
+    </div>
+</section>
+
+<div class="summary">
+    <div class="wr960">
+        <table class="summary-table" cellspacing="8">
+
+            <tr>
+                <td>Товары(3)</td>
+                <td>690 руб</td>
+            </tr>
+            <tr>
+                <td>Доставка</td>
+                <td>449 руб</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td>Итого</td>
+                <td>1139 руб</td>
+            </tr>
+
+        </table>
+        <div class="blue-button">Оформить заказ</div>
+    </div>
+</div>
 
 <?php $APP->includeFooterWithParams(); ?>
