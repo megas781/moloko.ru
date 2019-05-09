@@ -3,7 +3,7 @@
 require_once '../../App.php';
 
 $metainfo = [
-    'style_path' => HTTP_ROOT . 'products/detail/products-detail.css',
+    'style_path' => HTTP_ROOT . 'products/detail/product-detail.css',
     'page_id' => 'products',
     'page_title' => 'Молоко пастеризованное 3%, 1л'
 ];
