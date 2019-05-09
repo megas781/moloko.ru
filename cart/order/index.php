@@ -11,7 +11,7 @@ $APP->includeHeaderWithParams($metainfo);
 
 ?>
 
-<form action="" class="order-form">
+<form action="./success/" method="post" class="order-form">
 
     <div style="color: #999999">* - обязательное поле</div>
 
