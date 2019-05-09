@@ -59,3 +59,12 @@
 .seller-info {
     padding: 0 16px;
 }
+
+
+.locality-title {
+    text-align: center;
+}
+.locality-map-container {
+    display: flex;
+    justify-content: space-around;
+}

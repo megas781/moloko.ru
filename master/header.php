@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/footer.css' ?>">
     <link rel="stylesheet" href="<?php echo $params['style_path'] ?>">
 
+    <!--    Подключение Yandex.Map API-->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=6a9a39c7-e8d9-4b7b-b568-94eb61f84ae7
+>&lang=ru_RU" type="text/javascript">
+    </script>
+
 </head>
 <body>
 
@@ -65,3 +70,4 @@
 
 <main class="content">
     <div class="wr960">
+</html>
