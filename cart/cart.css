@@ -1,0 +1,85 @@
+.product {
+    padding: 16px;
+    background-color: #f7f7f7;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.product-image {
+    width: 160px;
+    height: 160px;
+}
+
+
+/* здесь должны быть стили текста */
+
+.product-info {
+    flex-grow: 1;
+    padding: 0 16px;
+}
+
+.product-title {
+    text-decoration: none;
+    color: black;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+}
+.product-desc {
+    margin: 10px 0;
+    color: #858585;
+}
+.seller {
+    margin-top: 8px;
+    display: inline-block;
+}
+.seller-name {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
+}
+.selle-name-label {
+    display: inline-block;
+    margin-right: 8px;
+}
+.seller-name-link {
+    text-decoration: none;
+}
+.seller-locality {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: #a1a1a1;
+}
+
+
+
+.product-controls {
+    text-align: right;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*align-items: flex-end;*/
+}
+
+.product-total-price {
+    font-size: 30px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.product-quantity {
+
+}
+
+.add-to-cart-button {
+
+}
