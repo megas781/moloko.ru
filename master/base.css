@@ -24,6 +24,29 @@ h1, h2, h3, h4, h5, h6 {
     /*font-family: Roboto;*/
 }
 
+label {
+    user-select: none;
+}
+
+input {
+    font-size: 16px;
+}
+
+input[type=radio] {
+    position: relative;
+    bottom: 2px;
+}
+input[type=text] {
+    padding: 4px 4px;
+}
+
+textarea {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 300;
+    resize: none;
+}
+
 .stepper {
     background-color: #e3e3e3;
     font-size: 24px;
@@ -58,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+    border: none;
 }
 .blue-button:hover {
     background-color: #2390c2;
