@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/base.css' ?>">
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/header.css' ?>">
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/footer.css' ?>">
-    <link rel="stylesheet" href="<?php echo $params['style_path']?>">
+    <link rel="stylesheet" href="<?php echo $params['style_path'] ?>">
+
+    <!--    Подключение Yandex.Map API-->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=6a9a39c7-e8d9-4b7b-b568-94eb61f84ae7
+>&lang=ru_RU" type="text/javascript">
+    </script>
 
 </head>
 <body>
@@ -33,34 +38,36 @@
         <div class="nav-links">
 
             <?php
+
             $navItems = [
-                ['main', 'Главная', 'http://moloko.glebkalachev.ru'],
-                ['products', 'Товары', 'http://moloko.glebkalachev.ru/products/'],
-                ['sellers', 'Продавцы', 'http://moloko.glebkalachev.ru/sellers/'],
-                ['about', 'О сайте', 'http://moloko.glebkalachev.ru/about/'],
-                ['faq', 'F.A.Q', 'http://moloko.glebkalachev.ru/faq/'],
-                ['contacts', 'Контакты', 'http://moloko.glebkalachev.ru/contacts/']
+                'main' => ['Главная', 'http://moloko.glebkalachev.ru', 1],
+                'products' => ['Товары', 'http://moloko.glebkalachev.ru/products/', 2],
+                'sellers' => ['Продавцы', 'http://moloko.glebkalachev.ru/sellers', 3],
+                'about' => ['О сайте', 'http://moloko.glebkalachev.ru/about/', 4],
+                'faq' => ['F.A.Q', 'http://moloko.glebkalachev.ru/faq/', 5],
+                'contacts' => ['Контакты', 'http://moloko.glebkalachev.ru/contacts/', 6]
             ];
 
-            for ($i = 0; $i < count($navItems); $i++) {
-                $item = $navItems[$i];
-
-                echo '<a href="'. $item[2] .'" class="nav-item '. ($params['page_id'] == $item[0] ? 'active' : '') .'">'.$item[1].'</a>';
+            foreach ($navItems as $page_id => $item) {
+                echo '<a href="' . $item[1] . '" class="nav-item ' . ($params['page_id'] == $page_id ? 'active' : '') . '">' . $item[0] . '</a>';
             }
+
             ?>
 
         </div>
 
-        <a class="nav-item nav-cart <?php echo ($params['page_id'] == 'cart' ? 'active' : '') ?>" href="http://moloko.glebkalachev.ru/cart/">Корзина (3)</a>
+        <a class="nav-item nav-cart <?php echo($params['page_id'] == 'cart' ? 'active' : '') ?>"
+           href="http://moloko.glebkalachev.ru/cart/">Корзина (3)</a>
     </div>
 </nav>
 
 <div class="breadcrumbs">
     <a class="breadcrumb-item first" href="">Главная</a>
-    <span class="breadcrumb-item last">Товары</span>
+    <span class="breadcrumb-item last"><?php echo $navItems[$params['page_id']][0] ?></span>
 </div>
 
 <h1 class="page-title wr960"><?php echo $params['page_title'] ?></h1>
 
 <main class="content">
     <div class="wr960">
+</html>
