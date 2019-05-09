@@ -40,6 +40,7 @@ $APP->includeHeaderWithParams($metainfo);
     </div>
 </section>
 
+
 <section class="product">
 
     <img class="product-image" src="/images/milk.png" alt="image">
@@ -65,9 +66,11 @@ $APP->includeHeaderWithParams($metainfo);
             </div>
         </div>
 
-        <span class="add-to-cart-button blue-button">В корзину</span>
+        <div class="delete-button"></div>
     </div>
 </section>
+
+
 <section class="product">
 
     <img class="product-image" src="/images/milk.png" alt="image">
@@ -93,8 +96,30 @@ $APP->includeHeaderWithParams($metainfo);
             </div>
         </div>
 
-        <span class="add-to-cart-button blue-button">В корзину</span>
+        <div class="delete-button"></div>
     </div>
 </section>
+
+<div class="summary">
+    <div class="wr960">
+        <table class="summary-table" cellspacing="8">
+
+            <tr>
+                <td>Товары(3)</td>
+                <td>690 руб</td>
+            </tr>
+            <tr>
+                <td>Доставка</td>
+                <td>449 руб</td>
+            </tr>
+            <tr style="font-weight: bold">
+                <td>Итого</td>
+                <td>1139 руб</td>
+            </tr>
+
+        </table>
+        <div class="blue-button">Оформить заказ</div>
+    </div>
+</div>
 
 <?php $APP->includeFooterWithParams(); ?>
