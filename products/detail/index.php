@@ -45,5 +45,26 @@ $APP->includeHeaderWithParams($metainfo);
     </div>
 </section>
 
+<h2>О продавце</h2>
+
+<section class="seller">
+    <img class="seller-avatar" src="<?php echo HTTP_ROOT . '/images/seller1.png' ?>" alt="">
+    <div class="seller-info">
+        <h2>Галиева Екатерина</h2>
+        <table>
+            <tr>
+                <td>Телефон:</td>
+                <td>8 (904) 771-92-73</td>
+            </tr>
+            <tr>
+                <td>email:</td>
+                <td>galievaekaterina68@mail.ru</td>
+            </tr>
+        </table>
+        <p>
+            В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне.
+        </p>
+    </div>
+</section>
 
 <?php $APP->includeFooterWithParams(); ?>
