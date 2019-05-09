@@ -35,10 +35,9 @@ $APP->includeHeaderWithParams($metainfo);
             </div>
         </div>
         <div class="products">
-
             <section class="product">
                 <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
                     <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
@@ -56,7 +55,7 @@ $APP->includeHeaderWithParams($metainfo);
             </section>
             <section class="product">
                 <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
                     <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
@@ -74,7 +73,7 @@ $APP->includeHeaderWithParams($metainfo);
             </section>
             <section class="product">
                 <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
                     <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
@@ -92,7 +91,7 @@ $APP->includeHeaderWithParams($metainfo);
             </section>
             <section class="product">
                 <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
                     <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
@@ -110,7 +109,7 @@ $APP->includeHeaderWithParams($metainfo);
             </section>
             <section class="product">
                 <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="#">Молоко пастеризованное 3%, 1л</a>
+                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
                     <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="#">Галиева Екатерина</a></div>
