@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    margin-bottom: 16px;
 }
 
 .product-image {
@@ -67,7 +68,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /*align-items: flex-end;*/
+    align-items: flex-end;
 }
 
 .product-total-price {
@@ -80,6 +81,13 @@
 
 }
 
-.add-to-cart-button {
+.delete-button {
 
+    background-image: url("../images/trash.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
 }
