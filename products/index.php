@@ -13,12 +13,18 @@ $APP->includeHeaderWithParams($metainfo);
 ?>
         <div class="search-form" action="" >
             <div class="select-input">
-                <label for="locality">Населённый пункт:</label>
+                <label for="locality">Искать ближе к:</label>
                 <select name="locality" id="locality">
+                    <option value="moskva">Везде</option>
                     <option value="moskva">Москва</option>
-                    <option value="slusaryovo">Слюсарёво</option>
-                    <option value="kotelniky">Котельники</option>
-                    <option value="ustannoe">Устанное</option>
+                    <?php
+
+                    $cities = $APP->getCities();
+
+                    foreach ($cities as $city) {
+                        echo "<option>".$city['city']."</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="select-input">
