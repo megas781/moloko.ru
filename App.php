@@ -48,7 +48,7 @@ class App {
      */
     public function getSellers() {
         return $this->conn->query("
-        select * from sellers s inner join mos_cities mc on s.city_id = mc.city_id
+        select * from sellers s inner join mos_cities mc on s.village_id = mc.city_id
         ")->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -57,7 +57,7 @@ class App {
         select * from products p 
             join seller_to_products stp on p.product_id = stp.product_id 
             join sellers s on stp.seller_id = s.seller_id 
-            join mos_cities mc on s.city_id = mc.city_id
+            join villages v on s.village_id = v.village_id
         ")->fetch_all(MYSQLI_ASSOC);
     }
 
