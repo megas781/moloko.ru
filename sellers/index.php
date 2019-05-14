@@ -35,52 +35,21 @@ $APP->includeHeaderWithParams($metainfo);
 </div>
 <div class="sellers">
 
-    <section class="seller">
-        <img class="seller-image" src="/images/seller1.png" alt="фото продавца">
-        <a class="seller-name" href="#">Галиева Екатерина</a>
-        <div class="seller-locality">Село Слюсарёво, МО</div>
-        <p class="seller-desc">В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне...</p>
-        <div class="seller-detail-button-positioner">
-            <a href="#" class="detail-link blue-button">Подробнее</a>
-        </div>
-    </section>
-    <section class="seller">
-        <img class="seller-image" src="/images/seller1.png" alt="фото продавца">
-        <a class="seller-name" href="#">Галиева Екатерина</a>
-        <div class="seller-locality">Село Слюсарёво, МО</div>
-        <p class="seller-desc">В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне...</p>
-        <div class="seller-detail-button-positioner">
-            <a href="#" class="detail-link blue-button">Подробнее</a>
-        </div>
-    </section>
-    <section class="seller">
-        <img class="seller-image" src="/images/seller1.png" alt="фото продавца">
-        <a class="seller-name" href="#">Галиева Екатерина</a>
-        <div class="seller-locality">Село Слюсарёво, МО</div>
-        <p class="seller-desc">В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне...</p>
-        <div class="seller-detail-button-positioner">
-            <a href="#" class="detail-link blue-button">Подробнее</a>
-        </div>
-    </section>
-    <section class="seller">
-        <img class="seller-image" src="/images/seller1.png" alt="фото продавца">
-        <a class="seller-name" href="#">Галиева Екатерина</a>
-        <div class="seller-locality">Село Слюсарёво, МО</div>
-        <p class="seller-desc">В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне...</p>
-        <div class="seller-detail-button-positioner">
-            <a href="#" class="detail-link blue-button">Подробнее</a>
-        </div>
-    </section>
-    <section class="seller">
-        <img class="seller-image" src="/images/seller1.png" alt="фото продавца">
-        <a class="seller-name" href="#">Галиева Екатерина</a>
-        <div class="seller-locality">Село Слюсарёво, МО</div>
-        <p class="seller-desc">В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне...</p>
-        <div class="seller-detail-button-positioner">
-            <a href="#" class="detail-link blue-button">Подробнее</a>
-        </div>
-    </section>
+    <?php
 
+    $sellers = $APP->getSellers();
+    foreach ($sellers as $seller):
+    ?>
+    <section class="seller">
+        <img class="seller-image" src="/images/sellers_images/<?php echo $seller['seller_id'] ?>.jpg" alt="фотография продавца">
+        <a class="seller-name" href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
+        <div class="seller-locality">пос. <?php echo $seller['village'] ?></div>
+        <p class="seller-desc"><?php echo $seller['description'] ?></p>
+        <div class="seller-detail-button-positioner">
+            <a href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>" class="detail-link blue-button">Подробнее</a>
+        </div>
+    </section>
+    <?php endforeach; ?>
 </div>
 
 

@@ -48,7 +48,7 @@ class App {
      */
     public function getSellers() {
         return $this->conn->query("
-        select * from sellers s inner join mos_cities mc on s.village_id = mc.city_id
+        select * from sellers s inner join villages v on s.village_id = v.village_id
         ")->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -61,6 +61,25 @@ class App {
         ")->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getProductById($id) {
+        return $this->conn->query("
+        select * from (select * from products where product_id = " . $id . ") p
+               join seller_to_products stp on p.product_id = stp.product_id
+               join sellers s on stp.seller_id = s.seller_id
+               join villages v on s.village_id = v.village_id
+        ")->fetch_assoc();
+    }
+
+    public function getSellerById($id) {
+        return $this->conn->query("
+        select * from (select * from sellers where seller_id = " . $id . ") s join villages v on s.village_id = v.village_id; 
+        ")->fetch_assoc();
+    }
+    public function getProductsBySellerId($id) {
+        return $this->conn->query("
+        select * from (select * from seller_to_products where seller_id = " . $id . ") stp join products p on stp.product_id = p.product_id;
+        ")->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 $APP = App::getInstance();

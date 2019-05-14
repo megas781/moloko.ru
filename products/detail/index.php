@@ -2,10 +2,12 @@
 
 require_once '../../App.php';
 
+$product = $APP->getProductById($_GET['product_id']);
+
 $metainfo = [
     'style_path' => HTTP_ROOT . 'products/detail/product-detail.css',
     'page_id' => 'products',
-    'page_title' => 'Молоко пастеризованное 3%, 1л'
+    'page_title' => $product['title']
 ];
 
 $APP->includeHeaderWithParams($metainfo);
@@ -13,25 +15,32 @@ $APP->includeHeaderWithParams($metainfo);
 ?>
 
 
+<?php
+
+echo '<pre>';
+//print_r($product);
+echo '</pre>';
+
+?>
+
 <section class="product">
 
     <img class="product-image" src="/images/milk.png" alt="image">
 
     <div class="product-info">
         <h4>Описание</h4>
-        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность от 4% до 5%.
+        <p class="product-desc">Энергетическая ценность <?php echo $product['energy_value']?>, белки <?php echo $product['squirrels'] ?> г, жиры <?php echo $product['fats'] ?> г, углеводы <?php echo $product['carbohydrates'] ?> г<br><br>
+            Хранить при температуре <?php echo $product['storage_temperature_from'] ?> - <?php echo $product['storage_temperature_to'] ?>°C
             <br><br>
-            Хранить при температуре +4
-            <br><br>
-            Срок годности: 5 дней <br><br>
+            Срок годности: <?php echo $product['shelf_live'] ?> дней <br><br>
 
         </p>
-        <h4>Объем: 1л</h4>
+        <h4>Объем: <?php echo $product['volume'] ?> л</h4>
     </div>
 
     <div class="product-controls">
         <div>
-            <div class="product-price">230 руб.</div>
+            <div class="product-price"><?php echo $product['price'] ?> руб</div>
 
             <div class="product-quantity stepper">
                 <span class="stepper-minus stepper-control">–</span>
@@ -47,27 +56,26 @@ $APP->includeHeaderWithParams($metainfo);
 <h2>О продавце</h2>
 
 <section class="seller">
-    <img class="seller-avatar" src="<?php echo HTTP_ROOT . '/images/seller1.png' ?>" alt="">
+    <img class="seller-avatar" src="/images/sellers_images/<?php echo $product['seller_id'] ?>.jpg" alt="">
     <div class="seller-info">
-        <a class="seller-name-link" href="/sellers/detail/"><h2>Галиева Екатерина</h2></a>
+        <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $product['seller_id'] ?>"><h2><?php echo $product['surname'] . ' ' . $product['name'] ?></h2></a>
         <table>
             <tr>
                 <td>Телефон:</td>
-                <td>8 (904) 771-92-73</td>
+                <td><?php echo $product['phone_number'] ?></td>
             </tr>
             <tr>
                 <td>email:</td>
-                <td>galievaekaterina68@mail.ru</td>
+                <td><?php echo $product['email'] ?></td>
             </tr>
         </table>
         <p>
-            В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что
-            держит качество наших продуктов на высоком уровне.
+            <?php echo $product['description'] ?>
         </p>
     </div>
 </section>
 
-<h2 class="locality-title">Село Слюсарёво, Московская область</h2>
+<h2 class="locality-title">пос. <?php echo $product['village'] ?></h2>
 
 <div class="locality-map-container">
     <div id="map" style="width: 600px; height: 400px"></div>
@@ -83,7 +91,7 @@ $APP->includeHeaderWithParams($metainfo);
             // Порядок по умолчанию: «широта, долгота».
             // Чтобы не определять координаты центра карты вручную,
             // воспользуйтесь инструментом Определение координат.
-            center: [55.76, 37.64],
+            center: [<?php echo $product['lat'] ?>, <?php echo $product['lng']?>],
             // Уровень масштабирования. Допустимые значения:
             // от 0 (весь мир) до 19.
             zoom: 14

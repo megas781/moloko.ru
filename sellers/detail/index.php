@@ -1,29 +1,37 @@
 <?php
 require_once '../../App.php';
 
+$seller = $APP->getSellerById($_GET['seller_id']);
+$sellerProducts = $APP->getProductsBySellerId($_GET['seller_id']);
+
+
 $metainfo = [
     'style_path' => HTTP_ROOT . '/sellers/detail/seller-detail.css',
     'page_id' => 'sellers',
-    'page_title' => 'Галиева Екатерина'
+    'page_title' => ($seller['surname'] . ' ' . $seller['name'] . ' ' . $seller['otchestvo'])
 ];
 
 $APP->includeHeaderWithParams($metainfo);
 
+//echo '<pre>';
+//print_r($seller);
+//echo '</pre>';
+
 ?>
 
 <div class="seller-contacts">
-    <span class="contact-item">8 (904) 771-92-73</span>
-    <span class="contact-item">galievaekaterina68@mail.ru</span>
-    <span class="contact-item">Село Слюсарёво, МО</span>
+    <span class="contact-item"><?php echo $seller['phone_number'] ?></span>
+    <span class="contact-item"><?php echo $seller['email'] ?></span>
+    <span class="contact-item">пос. <?php echo $seller['village'] ?></span>
 </div>
 
 
-<img class="seller-avatar" src="<?php echo HTTP_ROOT . '/images/seller1.png' ?>" alt="фотография продавца">
+<img class="seller-avatar" src="/images/sellers_images/<?php echo $seller['seller_id'] ?>.jpg" alt="фотография продавца">
 
-<p class="seller-desc">В продаже имеется домашнее молоко, сыр, сметана. Мы кормим коров только экологически чистой пищей, что держит качество наших продуктов на высоком уровне.</p>
+<p class="seller-desc"><?php echo $seller['description'] ?></p>
 
 
-<h2 class="locality-title">Село Слюсарёво, Московская область</h2>
+<h2 class="locality-title">пос. <?php echo $seller['village'] ?></h2>
 
 <div class="locality-map-container">
     <div id="map" style="width: 600px; height: 400px"></div>
@@ -39,7 +47,7 @@ $APP->includeHeaderWithParams($metainfo);
             // Порядок по умолчанию: «широта, долгота».
             // Чтобы не определять координаты центра карты вручную,
             // воспользуйтесь инструментом Определение координат.
-            center: [55.76, 37.64],
+            center: [<?php echo $seller['lat'] ?>, <?php echo $seller['lng'] ?>],
             // Уровень масштабирования. Допустимые значения:
             // от 0 (весь мир) до 19.
             zoom: 14
@@ -49,80 +57,37 @@ $APP->includeHeaderWithParams($metainfo);
 
 <h2 style="margin-top: 40px">Товары Продавца</h2>
 
+
+<?php
+//echo '<pre>';
+//print_r($sellerProducts);
+//echo '</pre>';
+?>
+
 <div class="products">
 
-    <section class="product">
-        <img class="product-image" src="/images/milk.png" alt="image">
-        <a class="product-title" href="/products/detail/">Молоко пастеризованное 3%, 1л</a>
-        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-        <div class="seller">
-            <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-            <div class="seller-locality">Село Слюсарёво, МО</div>
-        </div>
-        <div class="product-price">230 руб.</div>
-        <div class="product-controls">
-            <div class="product-quantity stepper">
-                <span class="stepper-minus stepper-control">–</span>
-                <span class="stepper-number">1</span>
-                <span class="stepper-plus stepper-control">+</span>
+    <?php
+    foreach ($sellerProducts as $product):
+        ?>
+        <section class="product">
+            <img class="product-image" src="/images/milk.png" alt="image">
+            <a class="product-title" href="/products/detail/?product_id=<?php echo $product['product_id'] ?>"><?php echo $product['title'] ?></a>
+            <p class="product-desc">Объем <?php echo $product['volume'] ?>, энергетическая ценность <?php echo $product['energy_value']?>, белки <?php echo $product['squirrels'] ?> г, жиры <?php echo $product['fats'] ?> г, углеводы <?php echo $product['carbohydrates'] ?> г</p>
+            <div class="seller">
+                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a></div>
+                <div class="seller-locality">пос. <?php echo $seller['village'] ?></div>
             </div>
-            <span class="add-to-cart-button blue-button">В корзину</span>
-        </div>
-    </section>
-    <section class="product">
-        <img class="product-image" src="/images/milk.png" alt="image">
-        <a class="product-title" href="/products/detail/">Молоко пастеризованное 3%, 1л</a>
-        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-        <div class="seller">
-            <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-            <div class="seller-locality">Село Слюсарёво, МО</div>
-        </div>
-        <div class="product-price">230 руб.</div>
-        <div class="product-controls">
-            <div class="product-quantity stepper">
-                <span class="stepper-minus stepper-control">–</span>
-                <span class="stepper-number">1</span>
-                <span class="stepper-plus stepper-control">+</span>
+            <div class="product-price"><?php echo $product['price'] ?> руб</div>
+            <div class="product-controls">
+                <div class="product-quantity stepper">
+                    <span class="stepper-minus stepper-control">–</span>
+                    <span class="stepper-number">1</span>
+                    <span class="stepper-plus stepper-control">+</span>
+                </div>
+                <span class="add-to-cart-button blue-button">В корзину</span>
             </div>
-            <span class="add-to-cart-button blue-button">В корзину</span>
-        </div>
-    </section>
-    <section class="product">
-        <img class="product-image" src="/images/milk.png" alt="image">
-        <a class="product-title" href="/products/detail/">Молоко пастеризованное 3%, 1л</a>
-        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-        <div class="seller">
-            <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-            <div class="seller-locality">Село Слюсарёво, МО</div>
-        </div>
-        <div class="product-price">230 руб.</div>
-        <div class="product-controls">
-            <div class="product-quantity stepper">
-                <span class="stepper-minus stepper-control">–</span>
-                <span class="stepper-number">1</span>
-                <span class="stepper-plus stepper-control">+</span>
-            </div>
-            <span class="add-to-cart-button blue-button">В корзину</span>
-        </div>
-    </section>
-    <section class="product">
-        <img class="product-image" src="/images/milk.png" alt="image">
-        <a class="product-title" href="/products/detail/">Молоко пастеризованное 3%, 1л</a>
-        <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-        <div class="seller">
-            <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-            <div class="seller-locality">Село Слюсарёво, МО</div>
-        </div>
-        <div class="product-price">230 руб.</div>
-        <div class="product-controls">
-            <div class="product-quantity stepper">
-                <span class="stepper-minus stepper-control">–</span>
-                <span class="stepper-number">1</span>
-                <span class="stepper-plus stepper-control">+</span>
-            </div>
-            <span class="add-to-cart-button blue-button">В корзину</span>
-        </div>
-    </section>
+        </section>
+    <?php endforeach; ?>
 
 </div>
 
