@@ -15,11 +15,12 @@
     color: white;
 }
 .copyright {
+
     display: block;
     text-align: center;
-
     padding: 8px;
-    color: white;
+    color: #e2e2e2;
+    font-size: 14px;
 
 }
 
