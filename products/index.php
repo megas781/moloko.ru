@@ -11,6 +11,18 @@ $metainfo = [
 $APP->includeHeaderWithParams($metainfo);
 
 ?>
+
+
+
+<?php
+//$conn = new mysqli('localhost','u0684531_default', 'Eo0nNox_','u0684531_moloko');
+//$cities = $conn->query("select * from mos_cities")->fetch_all();
+echo '<pre>';
+//print_r(array_reverse($cities));
+echo '</pre>';
+?>
+
+
         <div class="search-form" action="" >
             <div class="select-input">
                 <label for="locality">Искать ближе к:</label>
@@ -41,96 +53,33 @@ $APP->includeHeaderWithParams($metainfo);
             </div>
         </div>
         <div class="products">
-            <section class="product">
-                <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
-                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-                <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-                    <div class="seller-locality">Село Слюсарёво, МО</div>
-                </div>
-                <div class="product-price">230 руб.</div>
-                <div class="product-controls">
-                    <div class="product-quantity stepper">
-                        <span class="stepper-minus stepper-control">–</span>
-                        <span class="stepper-number">1</span>
-                        <span class="stepper-plus stepper-control">+</span>
-                    </div>
-                    <span class="add-to-cart-button blue-button">В корзину</span>
-                </div>
-            </section>
-            <section class="product">
-                <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
-                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-                <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-                    <div class="seller-locality">Село Слюсарёво, МО</div>
-                </div>
-                <div class="product-price">230 руб.</div>
-                <div class="product-controls">
-                    <div class="product-quantity stepper">
-                        <span class="stepper-minus stepper-control">–</span>
-                        <span class="stepper-number">1</span>
-                        <span class="stepper-plus stepper-control">+</span>
-                    </div>
-                    <span class="add-to-cart-button blue-button">В корзину</span>
-                </div>
-            </section>
-            <section class="product">
-                <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
-                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-                <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-                    <div class="seller-locality">Село Слюсарёво, МО</div>
-                </div>
-                <div class="product-price">230 руб.</div>
-                <div class="product-controls">
-                    <div class="product-quantity stepper">
-                        <span class="stepper-minus stepper-control">–</span>
-                        <span class="stepper-number">1</span>
-                        <span class="stepper-plus stepper-control">+</span>
-                    </div>
-                    <span class="add-to-cart-button blue-button">В корзину</span>
-                </div>
-            </section>
-            <section class="product">
-                <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
-                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-                <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-                    <div class="seller-locality">Село Слюсарёво, МО</div>
-                </div>
-                <div class="product-price">230 руб.</div>
-                <div class="product-controls">
-                    <div class="product-quantity stepper">
-                        <span class="stepper-minus stepper-control">–</span>
-                        <span class="stepper-number">1</span>
-                        <span class="stepper-plus stepper-control">+</span>
-                    </div>
-                    <span class="add-to-cart-button blue-button">В корзину</span>
-                </div>
-            </section>
-            <section class="product">
-                <img class="product-image" src="/images/milk.png" alt="image">
-                <a class="product-title" href="./detail/">Молоко пастеризованное 3%, 1л</a>
-                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
-                <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
-                    <div class="seller-locality">Село Слюсарёво, МО</div>
-                </div>
-                <div class="product-price">230 руб.</div>
-                <div class="product-controls">
-                    <div class="product-quantity stepper">
-                        <span class="stepper-minus stepper-control">–</span>
-                        <span class="stepper-number">1</span>
-                        <span class="stepper-plus stepper-control">+</span>
-                    </div>
-                    <span class="add-to-cart-button blue-button">В корзину</span>
-                </div>
-            </section>
 
+
+            <?php
+//            echo '<pre>';
+            $products = $APP->getProducts();
+//            echo print_r($products);
+            foreach ($products as $item):
+            ?>
+            <section class="product">
+                <img class="product-image" src="/images/milk.png" alt="image">
+                <a class="product-title" href="./detail/?product=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
+                <p class="product-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
+                <div class="seller">
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/?seller=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a></div>
+                    <div class="seller-locality">пос. <?php echo $item['city'] ?></div>
+                </div>
+                <div class="product-price"><?php echo $item['price'] ?> руб</div>
+                <div class="product-controls">
+                    <div class="product-quantity stepper">
+                        <span class="stepper-minus stepper-control">–</span>
+                        <span class="stepper-number">1</span>
+                        <span class="stepper-plus stepper-control">+</span>
+                    </div>
+                    <span class="add-to-cart-button blue-button">В корзину</span>
+                </div>
+            </section>
+            <?php endforeach; ?>
         </div>
+
             <?php $APP->includeFooterWithParams(); ?>

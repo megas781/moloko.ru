@@ -19,7 +19,7 @@ class App {
             self::$_instance = new self();
         }
         self::$_instance->conn = new mysqli('localhost','u0684531_default', 'Eo0nNox_','u0684531_moloko');
-
+        self::$_instance->conn->set_charset('utf8');
         return self::$_instance;
     }
 
@@ -43,7 +43,27 @@ class App {
         return $this->conn->query("select * from mos_cities")->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSellers() {
+        return $this->conn->query("
+        select * from sellers s inner join mos_cities mc on s.city_id = mc.city_id
+        ")->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProducts() {
+        return $this->conn->query("
+        select * from products p 
+            join seller_to_products stp on p.product_id = stp.product_id 
+            join sellers s on stp.seller_id = s.seller_id 
+            join mos_cities mc on s.city_id = mc.city_id
+        ")->fetch_all(MYSQLI_ASSOC);
+    }
 
 }
 
 $APP = App::getInstance();
+
+
+
