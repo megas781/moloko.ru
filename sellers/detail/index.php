@@ -70,7 +70,7 @@ $APP->includeHeaderWithParams($metainfo);
     foreach ($sellerProducts as $product):
         ?>
         <section class="product">
-            <img class="product-image" src="/images/milk.png" alt="image">
+            <a href="/products/detail/?product_id=<?php echo $product['product_id'] ?>"><img class="product-image" src="/images/milk.png" alt="image"></a>
             <a class="product-title" href="/products/detail/?product_id=<?php echo $product['product_id'] ?>"><?php echo $product['title'] ?></a>
             <p class="product-desc">Объем <?php echo $product['volume'] ?>, энергетическая ценность <?php echo $product['energy_value']?>, белки <?php echo $product['squirrels'] ?> г, жиры <?php echo $product['fats'] ?> г, углеводы <?php echo $product['carbohydrates'] ?> г</p>
             <div class="seller">

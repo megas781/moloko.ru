@@ -41,10 +41,11 @@ $APP->includeHeaderWithParams($metainfo);
     foreach ($sellers as $seller):
     ?>
     <section class="seller">
-        <img class="seller-image" src="/images/sellers_images/<?php echo $seller['seller_id'] ?>.jpg" alt="фотография продавца">
+        <a href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><img class="seller-image" src="/images/sellers_images/<?php echo $seller['seller_id'] ?>.jpg" alt="фотография продавца"></a>
         <a class="seller-name" href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
         <div class="seller-locality">пос. <?php echo $seller['village'] ?></div>
         <p class="seller-desc"><?php echo $seller['description'] ?></p>
+        <div class="flex-space"></div>
         <div class="seller-detail-button-positioner">
             <a href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>" class="detail-link blue-button">Подробнее</a>
         </div>

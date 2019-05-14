@@ -59,13 +59,14 @@ echo '</pre>';
             foreach ($products as $item):
             ?>
             <section class="product">
-                <img class="product-image" src="/images/milk.png" alt="image">
+                <a href="./detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-image" src="/images/milk.png" alt="image"></a>
                 <a class="product-title" href="./detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
                 <p class="product-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
                 <div class="seller">
                     <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a></div>
                     <div class="seller-locality">пос. <?php echo $item['village'] ?></div>
                 </div>
+                <div class="flex-space"></div>
                 <div class="product-price"><?php echo $item['price'] ?> руб</div>
                 <div class="product-controls">
                     <div class="product-quantity stepper">

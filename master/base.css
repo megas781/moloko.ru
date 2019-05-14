@@ -95,6 +95,9 @@ textarea {
     align-items: center;
     justify-content: space-around;
 }
+.flex-space {
+    flex-grow: 10;
+}
 
 
 @media print {

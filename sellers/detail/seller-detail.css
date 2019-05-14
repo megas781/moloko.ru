@@ -44,8 +44,10 @@
     padding: 16px;
     background-color: #f7f7f7;
 
-    /*display: flex;*/
-
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .product-image {
