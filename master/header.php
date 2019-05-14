@@ -29,7 +29,7 @@
 
 <header class="header">
     <div class="wr960">
-        <a href="<?php echo HTTP_ROOT ?>"><img class="logo" src="../images/logo.png" alt="logo"></a>
+        <a href="<?php echo HTTP_ROOT ?>"><img class="logo" src="<?php echo HTTP_ROOT . '/images/logo.png' ?>" alt="logo"></a>
     </div>
 </header>
 
