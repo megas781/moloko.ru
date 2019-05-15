@@ -56,10 +56,15 @@ echo '</pre>';
 
             <?php
             $products = $APP->getProducts();
+
+//            echo '<pre>';
+
+//            print_r($products);
+
             foreach ($products as $item):
             ?>
             <section class="product">
-                <a href="./detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-image" src="/images/milk.png" alt="image"></a>
+                <a href="./detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-image" src="<?php echo $item['image_url'] ?>" alt="image"></a>
                 <a class="product-title" href="./detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
                 <p class="product-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
                 <div class="seller">

@@ -80,6 +80,16 @@ class App {
         select * from (select * from seller_to_products where seller_id = " . $id . ") stp join products p on stp.product_id = p.product_id;
         ")->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function formatDescription($string) {
+        $returnValue;
+        preg_match('~^.{80,100} ~u',$string,$matches);
+
+        $returnValue = $matches[0];
+        $returnValue = mb_substr($returnValue,0,strlen($returnValue) - 2) . '...';
+
+        return $returnValue;
+    }
 }
 
 $APP = App::getInstance();

@@ -25,7 +25,7 @@ echo '</pre>';
 
 <section class="product">
 
-    <img class="product-image" src="/images/milk.png" alt="image">
+    <img class="product-image" src="<?php echo $product['image_url'] ?>" alt="image">
 
     <div class="product-info">
         <h4>Описание</h4>
@@ -56,7 +56,7 @@ echo '</pre>';
 <h2>О продавце</h2>
 
 <section class="seller">
-    <img class="seller-avatar" src="/images/sellers_images/<?php echo $product['seller_id'] ?>.jpg" alt="">
+    <img class="seller-avatar" src="<?php echo $product['avatar_url'] ?>" alt="">
     <div class="seller-info">
         <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $product['seller_id'] ?>"><h2><?php echo $product['surname'] . ' ' . $product['name'] ?></h2></a>
         <table>
