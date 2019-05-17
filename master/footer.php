@@ -1,7 +1,18 @@
-
-
-    </div>
+</div>
 </main>
+
+<script src="<?php HTTP_ROOT ?>/master/base.js"></script>
+
+<?php
+if (isset($params['script_path'])) {
+    echo "<script src='" . $params['script_path'] . "'></script>";
+}
+?>
+
+
+<script>
+    console.log(getCart());
+</script>
 
 <footer class="footer">
     <div class="wr960">

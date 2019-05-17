@@ -5,7 +5,8 @@ require_once '../App.php';
 $metainfo = [
     'style_path' => HTTP_ROOT . 'products/products.css',
     'page_id' => 'products',
-    'page_title' => 'Товары'
+    'page_title' => 'Товары',
+    'script_path' => 'products.js'
 ];
 
 $APP->includeHeaderWithParams($metainfo);
@@ -27,7 +28,7 @@ echo '</pre>';
             <div class="select-input">
                 <label for="locality">Искать ближе к:</label>
                 <select name="locality" id="locality">
-                    <option value="moskva">Везде</option>
+                    <option value="everywhere">Везде</option>
                     <?php
 
                     $cities = $APP->getCities();
@@ -57,13 +58,10 @@ echo '</pre>';
             <?php
             $products = $APP->getProducts();
 
-//            echo '<pre>';
-
-//            print_r($products);
-
             foreach ($products as $item):
             ?>
             <section class="product">
+                <input type="hidden" value="<?php echo $item['product_id'] ?>" class="product_id_holder">
                 <a href="./detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-image" src="<?php echo $item['image_url'] ?>" alt="image"></a>
                 <a class="product-title" href="./detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
                 <p class="product-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
@@ -74,7 +72,7 @@ echo '</pre>';
                 <div class="flex-space"></div>
                 <div class="product-price"><?php echo $item['price'] ?> руб</div>
                 <div class="product-controls">
-                    <div class="product-quantity stepper">
+                    <div class="product-quantity stepper" id="pr-st-<?php echo $item['product_id'] ?>">
                         <span class="stepper-minus stepper-control">–</span>
                         <span class="stepper-number">1</span>
                         <span class="stepper-plus stepper-control">+</span>
@@ -85,4 +83,5 @@ echo '</pre>';
             <?php endforeach; ?>
         </div>
 
-            <?php $APP->includeFooterWithParams(); ?>
+
+            <?php $APP->includeFooterWithParams($metainfo); ?>

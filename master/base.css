@@ -9,7 +9,6 @@
 .wr960 {
     width: 960px;
     margin: 0 auto;
-
 }
 
 
@@ -83,10 +82,25 @@ textarea {
     text-align: center;
     border: none;
     outline: none;
+    /*transition-duration: 0.5s;*/
 }
 
 .blue-button:hover {
     background-color: #2390c2;
+}
+
+@keyframes blueButtonTappedAnimation {
+    from {}
+    to {
+        background-color: #b9b9b9;
+    }
+}
+
+.blue-button.tapped {
+    background-color: #b9b9b9;
+    animation-name: blueButtonTappedAnimation;
+    animation-duration: 1s;
+
 }
 
 .flex-centering {
@@ -107,13 +121,17 @@ textarea {
     }
     
     @page  {
-        /*margin-left: 3cm;*/
-        /*margin-right: 2cm;*/
+        margin-left: 5cm;
+        margin-right: 0cm;
+    }
+
+    h2:not(:first-child) {
+        /*page-break-before: right;*/
     }
 
     p {
         /*Минимальное кол-во строк при разрыве параграфа*/
-        orphans: 4;
+        orphans: 8;
         widows: 4;
     }
 
@@ -125,4 +143,7 @@ textarea {
         content: " (" attr(href) ")";
     }
 
+    #last-rrr {
+        page-break-before: always;
+    }
 }

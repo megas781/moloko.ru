@@ -12,10 +12,9 @@
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/footer.css' ?>">
     <link rel="stylesheet" href="<?php echo $params['style_path'] ?>">
 
+
     <!--    Подключение Yandex.Map API-->
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=6a9a39c7-e8d9-4b7b-b568-94eb61f84ae7
->&lang=ru_RU" type="text/javascript">
-    </script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=6a9a39c7-e8d9-4b7b-b568-94eb61f84ae7>&lang=ru_RU" type="text/javascript"></script>
 
 </head>
 <body>
@@ -43,7 +42,7 @@
                 'main' => ['Главная', 'http://moloko.glebkalachev.ru', 1],
                 'products' => ['Товары', 'http://moloko.glebkalachev.ru/products/', 2],
                 'sellers' => ['Продавцы', 'http://moloko.glebkalachev.ru/sellers', 3],
-                'about' => ['О сайте', 'http://moloko.glebkalachev.ru/about/', 4],
+//                'about' => ['О сайте', 'http://moloko.glebkalachev.ru/about/', 4],
                 'faq' => ['F.A.Q', 'http://moloko.glebkalachev.ru/faq/', 5],
                 'contacts' => ['Контакты', 'http://moloko.glebkalachev.ru/contacts/', 6]
             ];
@@ -57,7 +56,7 @@
         </div>
 
         <a class="nav-item nav-cart <?php echo($params['page_id'] == 'cart' ? 'active' : '') ?>"
-           href="http://moloko.glebkalachev.ru/cart/">Корзина (3)</a>
+           href="http://moloko.glebkalachev.ru/cart/">Корзина</a>
     </div>
 </nav>
 

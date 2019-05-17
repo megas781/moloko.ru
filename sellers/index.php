@@ -4,7 +4,7 @@ require_once '../App.php';
 $metainfo = [
     'style_path' => HTTP_ROOT . 'sellers/sellers.css',
     'page_id' => 'sellers',
-    'page_title' => 'Продавцы'
+    'page_title' => 'Продавцы',
 ];
 
 $APP->includeHeaderWithParams($metainfo);
@@ -16,7 +16,7 @@ $APP->includeHeaderWithParams($metainfo);
         <label for="locality">Искать ближе к:</label>
         <select name="locality" id="locality">
             <option value="moskva">Везде</option>
-            <option value="moskva">Москва</option>
+<!--            <option value="moskva">Москва</option>-->
             <?php
 
             $cities = $APP->getCities();
