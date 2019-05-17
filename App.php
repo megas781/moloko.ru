@@ -46,18 +46,37 @@ class App {
     /**
      * @return mixed
      */
-    public function getSellers() {
+    public function getSellers($count = 0) {
+
+        if ($count != 0) {
+            $limiting = ' limit ' . $count;
+        } else {
+            $limiting = '';
+        }
+
         return $this->conn->query("
         select * from sellers s inner join villages v on s.village_id = v.village_id
-        ")->fetch_all(MYSQLI_ASSOC);
+        " . $limiting)->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProducts() {
+    public function getProducts($count = 0) {
+
+        if ($count != 0) {
+            $limiting = ' limit ' . $count;
+        } else {
+            $limiting = '';
+        }
+
         return $this->conn->query("
         select * from products p 
             join seller_to_products stp on p.product_id = stp.product_id 
             join sellers s on stp.seller_id = s.seller_id 
-            join villages v on s.village_id = v.village_id
+            join villages v on s.village_id = v.village_id 
+        " . $limiting)->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getProductsBySellerId($id) {
+        return $this->conn->query("
+        select * from (select * from seller_to_products where seller_id = " . $id . ") stp join products p on stp.product_id = p.product_id;
         ")->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -69,18 +88,13 @@ class App {
                join villages v on s.village_id = v.village_id
         ")->fetch_assoc();
     }
-
     public function getSellerById($id) {
         return $this->conn->query("
         select * from (select * from sellers where seller_id = " . $id . ") s join villages v on s.village_id = v.village_id; 
         ")->fetch_assoc();
     }
-    public function getProductsBySellerId($id) {
-        return $this->conn->query("
-        select * from (select * from seller_to_products where seller_id = " . $id . ") stp join products p on stp.product_id = p.product_id;
-        ")->fetch_all(MYSQLI_ASSOC);
-    }
 
+    //Working with strings
     public function formatDescription($string) {
         $returnValue;
         preg_match('~^.{80,100} ~u',$string,$matches);
@@ -89,6 +103,82 @@ class App {
         $returnValue = mb_substr($returnValue,0,strlen($returnValue) - 2) . '...';
 
         return $returnValue;
+    }
+
+
+    //View controlling
+    public function printProductCell($item) {
+
+        ?>
+        <section class="product-card">
+            <input type="hidden" value="<?php echo $item['product_id'] ?>" class="product_id_holder">
+            <a href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-card-image" src="<?php echo $item['image_url'] ?>" alt="image"></a>
+            <a class="product-card-title" href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
+            <p class="product-card-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
+            <div class="seller">
+                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a></div>
+                <div class="seller-locality">пос. <?php echo $item['village'] ?></div>
+            </div>
+            <div class="flex-space"></div>
+            <div class="product-card-price"><?php echo $item['price'] ?> руб</div>
+            <div class="product-card-controls">
+                <div class="product-card-quantity stepper" id="pr-st-<?php echo $item['product_id'] ?>">
+                    <span class="stepper-minus stepper-control">–</span>
+                    <span class="stepper-number">1</span>
+                    <span class="stepper-plus stepper-control">+</span>
+                </div>
+                <span class="add-to-cart-button blue-button">В корзину</span>
+            </div>
+        </section>
+        <?php
+    }
+    public function printArrayOfProducts($arrayOfProducts, $count = 0) {
+
+        if ($count == 0) {
+            $count = count($arrayOfProducts);
+        }
+
+        for ($i = 0; $i <= $count - 1; $i++) {
+
+            $product = $arrayOfProducts[$i];
+            $this->printProductCell($product);
+
+        }
+    }
+
+    public function printSellerCell($seller) {
+        ?>
+        <section class="seller-card">
+        <a href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><img class="seller-card-image" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца"></a>
+        <a class="seller-card-name" href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
+        <div class="seller-card-locality">пос. <?php echo $seller['village'] ?></div>
+        <p class="seller-card-desc"><?php echo $this->formatDescription($seller['description']) ?></p>
+        <div class="flex-space"></div>
+        <div class="seller-card-detail-button-positioner">
+            <a href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>" class="detail-link blue-button">Подробнее</a>
+        </div>
+        </section>
+        <?php
+    }
+    public function printArrayOfSellers($arrayOfSellers, $count = 0) {
+
+        if ($count == 0) {
+            $count = count($arrayOfSellers);
+        }
+
+        for ($i = 0; $i <= $count - 1; $i++) {
+
+            $seller = $arrayOfSellers[$i];
+            $this->printSellerCell($seller);
+
+        }
+    }
+
+    public function printThreeProducts() {
+        $this->printArrayOfProducts($this->getProducts(3));
+    }
+    public function printThreeSellers() {
+        $this->printArrayOfSellers($this->getSellers(3));
     }
 }
 
