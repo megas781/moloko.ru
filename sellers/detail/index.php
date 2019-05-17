@@ -2,7 +2,6 @@
 require_once '../../App.php';
 
 $seller = $APP->getSellerById($_GET['seller_id']);
-$sellerProducts = $APP->getProductsBySellerId($_GET['seller_id']);
 
 
 $metainfo = [
@@ -65,31 +64,7 @@ $APP->includeHeaderWithParams($metainfo);
 ?>
 
 <div class="products">
-
-    <?php
-    foreach ($sellerProducts as $product):
-        ?>
-        <section class="product">
-            <input type="hidden" value="<?php echo $product['product_id'] ?>" class="product_id_holder">
-            <a href="/products/detail/?product_id=<?php echo $product['product_id'] ?>"><img class="product-image" src="<?php echo $product['image_url'] ?>" alt="product image"></a>
-            <a class="product-title" href="/products/detail/?product_id=<?php echo $product['product_id'] ?>"><?php echo $product['title'] ?></a>
-            <p class="product-desc">Объем <?php echo $product['volume'] ?>, энергетическая ценность <?php echo $product['energy_value']?>, белки <?php echo $product['squirrels'] ?> г, жиры <?php echo $product['fats'] ?> г, углеводы <?php echo $product['carbohydrates'] ?> г</p>
-            <div class="seller">
-                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a></div>
-                <div class="seller-locality">пос. <?php echo $seller['village'] ?></div>
-            </div>
-            <div class="product-price"><?php echo $product['price'] ?> руб</div>
-            <div class="product-controls">
-                <div class="product-quantity stepper">
-                    <span class="stepper-minus stepper-control">–</span>
-                    <span class="stepper-number">1</span>
-                    <span class="stepper-plus stepper-control">+</span>
-                </div>
-                <span class="add-to-cart-button blue-button">В корзину</span>
-            </div>
-        </section>
-    <?php endforeach; ?>
-
+<?php $APP->printArrayOfProducts($APP->getProductsBySellerId($_GET['seller_id'])) ?>
 </div>
 
 <?php $APP->includeFooterWithParams(); ?>
