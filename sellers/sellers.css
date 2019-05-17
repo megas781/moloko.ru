@@ -31,7 +31,7 @@
     grid-gap: 16px;
 }
 
-.seller {
+.seller-card {
     padding: 16px;
     background-color: #f7f7f7;
 
@@ -41,11 +41,11 @@
     flex-direction: column;
 }
 
-.seller-image {
+.seller-card-image {
     width: 100%;
 }
 
-.seller-name {
+.seller-card-name {
     text-decoration: none;
     color: black;
     margin-top: 12px;
@@ -54,22 +54,22 @@
     font-weight: bold;
     font-size: 22px;
 }
-.seller-name-link {
+.seller-card-name-link {
     text-decoration: none;
 }
 
-.seller-desc {
+.seller-card-desc {
     margin: 10px 0;
     color: #858585;
 }
 
-.seller-locality {
+.seller-card-locality {
     margin-top: 4px;
     margin-bottom: 4px;
     font-size: 16px;
     color: #a1a1a1;
 }
-.seller-detail-button-positioner {
+.seller-card-detail-button-positioner {
     display: flex;
     flex-direction: row-reverse;
 }

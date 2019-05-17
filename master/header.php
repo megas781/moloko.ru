@@ -32,6 +32,7 @@
     </div>
 </header>
 
+
 <nav class="nav">
     <div class="wr960">
         <div class="nav-links">
@@ -59,7 +60,7 @@
            href="http://moloko.glebkalachev.ru/cart/">Корзина</a>
     </div>
 </nav>
-
+<?php if ($_SERVER['REQUEST_URI'] != '/' and $_SERVER['REQUEST_URI'] != '/index.php'): ?>
 <div class="breadcrumbs">
     <a class="breadcrumb-item first" href="">Главная</a>
     <span class="breadcrumb-item last"><?php echo $navItems[$params['page_id']][0] ?></span>
@@ -67,6 +68,7 @@
 
 <h1 class="page-title wr960"><?php echo $params['page_title'] ?></h1>
 
+<?php endif; ?>
+
 <main class="content">
     <div class="wr960">
-</html>

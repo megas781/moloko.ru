@@ -40,13 +40,13 @@ $APP->includeHeaderWithParams($metainfo);
     $sellers = $APP->getSellers();
     foreach ($sellers as $seller):
     ?>
-    <section class="seller">
-        <a href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><img class="seller-image" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца"></a>
-        <a class="seller-name" href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
-        <div class="seller-locality">пос. <?php echo $seller['village'] ?></div>
-        <p class="seller-desc"><?php echo $APP->formatDescription($seller['description']) ?></p>
+    <section class="seller-card">
+        <a href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><img class="seller-card-image" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца"></a>
+        <a class="seller-card-name" href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
+        <div class="seller-card-locality">пос. <?php echo $seller['village'] ?></div>
+        <p class="seller-card-desc"><?php echo $APP->formatDescription($seller['description']) ?></p>
         <div class="flex-space"></div>
-        <div class="seller-detail-button-positioner">
+        <div class="seller-card-detail-button-positioner">
             <a href="./detail/?seller_id=<?php echo $seller['seller_id'] ?>" class="detail-link blue-button">Подробнее</a>
         </div>
     </section>

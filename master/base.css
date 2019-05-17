@@ -5,6 +5,13 @@
 @import "header.css";
 @import "footer.css";
 
+@font-face {
+    font-family: 'Pacifico';
+    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('pacifico/Pacificoregular.woff2') format('woff2'), url('pacifico/Pacificoregular.woff') format('woff'), url('pacifico/Pacificoregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
 
 .wr960 {
     width: 960px;

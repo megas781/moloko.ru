@@ -1,0 +1,256 @@
+h1, h2, h3 {
+    font-family: Pacifico;
+}
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+.cell-container-title {
+    margin-top: 70px;
+}
+
+h2.cell-container-title {
+    /*font-family: "Roboto";*/
+}
+
+.more-detail {
+    padding: 8px;
+    display: block;
+    text-align: right;
+    font-size: 18px;
+}
+
+
+/* Приветствие */
+.greeting {
+    display: block;
+    font-family: Pacifico;
+    background-image: url("images/greeting.jpg");
+    background-size: cover;
+    text-align: center;
+    padding: 120px 0 60px 0;
+}
+
+.greeting-text-1 {
+    display: block;
+    font-size: 50px;
+}
+
+.greeting-text-2 {
+    display: block;
+    font-size: 70px;
+    position: relative;
+    bottom: 20px;
+}
+
+/* Статистика */
+.numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.number-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.number-thumbnail {
+    width: 200px;
+    height: 200px;
+}
+
+.number-value {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.number-text {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Копипаст для товаров */
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+}
+
+.product-card {
+    padding: 16px;
+    background-color: #f7f7f7;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.product-card-image {
+    width: 100%;
+}
+
+.product-card-title {
+    text-decoration: none;
+    color: black;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.product-card-desc {
+    margin: 10px 0;
+    color: #858585;
+}
+
+.seller {
+
+}
+
+.seller-name {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
+}
+
+.seller-name-link {
+    text-decoration: none;
+}
+
+.seller-locality {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: #a1a1a1;
+}
+
+.product-card-price {
+    font-size: 30px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.product-card-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.product-card-quantity {
+
+}
+
+.add-to-cart-button {
+    width: 100px;
+    box-sizing: border-box;
+}
+
+
+/* Продавцы стили */
+.sellers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+}
+
+.seller-card {
+    padding: 16px;
+    background-color: #f7f7f7;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.seller-card-image {
+    width: 100%;
+}
+
+.seller-card-name {
+    text-decoration: none;
+    color: black;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.seller-card-name-link {
+    text-decoration: none;
+}
+
+.seller-card-desc {
+    margin: 10px 0;
+    color: #858585;
+}
+
+.seller-card-locality {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: #a1a1a1;
+}
+
+.seller-card-detail-button-positioner {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.detail-link {
+
+}
+
+
+
+.buying-process {
+
+}
+
+.bp-steps {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr 60px 1fr;
+}
+
+.bp-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.bp-separator {
+    background-image: url("images/cheese.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    bottom: 36px;
+}
+
+.bp-step-image {
+    width: 200px;
+}
+
+.bp-step-text {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.goto-products-link {
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    padding: 80px 0;
+}
