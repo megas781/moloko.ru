@@ -249,8 +249,17 @@ h2.cell-container-title {
 
 
 .goto-products-link {
-    font-size: 30px;
+    font-size: 26px;
     display: block;
     text-align: center;
-    padding: 80px 0;
+    padding: 6px 16px;
+    margin: 80px auto;
+    width: 240px;
+}
+.goto-products-link:after {
+    content: '>';
+    display: inline-block;
+    margin-left: 6px;
+    position: relative;
+    top: 1px;
 }

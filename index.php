@@ -114,6 +114,6 @@ $APP->includeHeaderWithParams($metainfo);
     </div>
 </div>
 
-<a href="http://moloko.glebkalachev.ru/products" class="goto-products-link">Перейти к товарам</a>
+<a href="http://moloko.glebkalachev.ru/products" class="goto-products-link blue-button">Перейти к товарам</a>
 
 <?php $APP->includeFooterWithParams(); ?>
