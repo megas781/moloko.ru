@@ -1,7 +1,7 @@
 </div>
 </main>
 
-<script src="<?php HTTP_ROOT ?>/master/base.js"></script>
+<script src="<?php HTTP_ROOT ?>/master/after-load.js"></script>
 
 <?php
 if (isset($params['script_path'])) {

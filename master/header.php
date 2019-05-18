@@ -15,6 +15,7 @@
 
     <!--    Подключение Yandex.Map API-->
     <script src="https://api-maps.yandex.ru/2.1/?apikey=6a9a39c7-e8d9-4b7b-b568-94eb61f84ae7>&lang=ru_RU" type="text/javascript"></script>
+    <script src="/master/before-load.js"></script>
 
 </head>
 <body>
