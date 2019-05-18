@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic');
 @import "header.css";
 @import "footer.css";
+@import "form-styles/product-card.css";
+@import "form-styles/seller-card.css";
 
 @font-face {
     font-family: 'Pacifico';
@@ -108,6 +110,9 @@ textarea {
     animation-name: blueButtonTappedAnimation;
     animation-duration: 1s;
 
+}
+.blue-button.tapped:hover {
+    background-color: #adadad;
 }
 
 .flex-centering {

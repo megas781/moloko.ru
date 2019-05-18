@@ -25,14 +25,14 @@ $APP->includeHeaderWithParams($metainfo);
 </div>
 
 
-<img class="seller-avatar" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца">
+<img class="product-detail-seller-avatar" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца">
 
 <p class="seller-desc"><?php echo $seller['description'] ?></p>
 
 
-<h2 class="locality-title">пос. <?php echo $seller['village'] ?></h2>
+<h2 class="product-card__locality-title">пос. <?php echo $seller['village'] ?></h2>
 
-<div class="locality-map-container">
+<div class="product-card__locality-map-container">
     <div id="map" style="width: 600px; height: 400px"></div>
 </div>
 
