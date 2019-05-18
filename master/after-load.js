@@ -2,13 +2,19 @@
 
 //Определение уже лежащих в корзине товаров при загрузке страницы
 document.querySelectorAll('.product-card').forEach(function (product) {
-    let addToCardButton = product.querySelector('.add-to-cart-button');
-    let product_id = product.querySelector('.product_id_holder').value;
 
-    if (getItemAt(product_id)) {
+    //Для кнопки "В корзину"
+    let addToCardButton = product.querySelector('.add-to-cart-button');
+    let productId = addToCardButton.getAttribute('productId');
+    if (getItemAt(productId)) {
         addToCardButton.classList.add('tapped');
         addToCardButton.textContent = 'В корзине';
     }
+
+    //Для числа в stepper'e
+    let stepperNumberNode = product.querySelector('.stepper-number');
+    stepperNumberNode.textContent = getItemAt(productId) ? getItemAt(productId) : '1';
+
 });
 //Определение количества уже лежащих в корзине товаров при загрузке страницы для кнопки корзины
 if (getCartLength() > 0) {
@@ -16,28 +22,40 @@ if (getCartLength() > 0) {
 }
 
 //Функционал кнопок stepper'a
-document.querySelectorAll('.stepper').forEach(function (value, key, parent) {
+document.querySelectorAll('.stepper').forEach(function (stepper, key, parent) {
     console.log('исполняешься??');
-    let minusButton = value.querySelector('.stepper-minus');
-    let stepper = value.querySelector('.stepper-number');
-    let plusButton = value.querySelector('.stepper-plus');
+    let minusButton = stepper.querySelector('.stepper-minus');
+    let stepperNumberNode = stepper.querySelector('.stepper-number');
+    let plusButton = stepper.querySelector('.stepper-plus');
+
+    let productId = stepper.getAttribute('productId');
 
     minusButton.addEventListener('click', function (e) {
-        if (Number(stepper.textContent) > 1) {
-            stepper.textContent = String(Number(stepper.textContent) - 1);
+        if (Number(stepperNumberNode.textContent) > 1) {
+            stepperNumberNode.textContent = String(Number(stepperNumberNode.textContent) - 1);
+        }
+        if (getItemAt(productId) && getItemAt(productId) > 1) {
+            addItem(productId, stepperNumberNode.textContent);
+            console.log(localStorage);
         }
     });
     plusButton.addEventListener('click', function (e) {
-        stepper.textContent = Number(stepper.textContent) + 1;
+        stepperNumberNode.textContent = Number(stepperNumberNode.textContent) + 1;
+
+        if (getItemAt(productId) && Number(stepperNumberNode.textContent) > 1) {
+            addItem(productId, stepperNumberNode.textContent);
+            console.log('plus  after step: ' + localStorage.getItem('cart'));
+        }
     });
+
 });
 
 
 //Функционал кнопки "В корзину" для карточки товара
 document.querySelectorAll('.product-card').forEach(function (product, key, parent) {
 
-    let productId = product.querySelector('.product_id_holder').value;
-    let productNumber = product.querySelector('.stepper-number');
+    let productId = product.querySelector('.stepper').getAttribute('productId');
+    let productNumberNode = product.querySelector('.stepper-number');
     let addToCartButton = product.querySelector('.add-to-cart-button');
 
     //Тут то, что происходит при клике на кнопку "В корзину"
@@ -45,7 +63,7 @@ document.querySelectorAll('.product-card').forEach(function (product, key, paren
         if (addToCartButton.textContent === 'В корзину') {
 
             //Товар добавляется в локальное хранилище
-            addItem(productId, productNumber.textContent);
+            addItem(productId, productNumberNode.textContent);
 
             //Изменяется внешний вид кнопки
             addToCartButton.textContent = 'В корзине';

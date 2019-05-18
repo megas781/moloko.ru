@@ -14,6 +14,8 @@ $APP->includeHeaderWithParams($metainfo);
 
 <div id="cart-products-container">
 <!--Здесь контент заполняется с помощью js-->
+    <script src="load-selected-products.js"></script>
+
 </div>
 
 

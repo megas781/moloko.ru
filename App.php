@@ -128,7 +128,6 @@ class App {
 
         ?>
         <section class="product-card">
-            <input type="hidden" value="<?php echo $item['product_id'] ?>" class="product_id_holder">
             <a href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-card-image" src="<?php echo $item['image_url'] ?>" alt="image"></a>
             <a class="product-card-title" href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
             <p class="product-card-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
@@ -139,12 +138,12 @@ class App {
             <div class="flex-space"></div>
             <div class="product-card-price"><?php echo $item['price'] ?> руб</div>
             <div class="product-card-controls">
-                <div class="product-card-quantity stepper" id="pr-st-<?php echo $item['product_id'] ?>">
+                <div class="product-card-quantity stepper" productId="<?php echo $item['product_id'] ?>">
                     <span class="stepper-minus stepper-control">–</span>
                     <span class="stepper-number">1</span>
                     <span class="stepper-plus stepper-control">+</span>
                 </div>
-                <span class="add-to-cart-button blue-button">В корзину</span>
+                <span class="add-to-cart-button blue-button" productId="<?php echo $item['product_id'] ?>">В корзину</span>
             </div>
         </section>
         <?php
