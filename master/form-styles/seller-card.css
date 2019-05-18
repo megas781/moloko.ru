@@ -1,0 +1,54 @@
+.sellers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+}
+
+.seller-card {
+    padding: 16px;
+    background-color: #f7f7f7;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.seller-card-image {
+    width: 100%;
+}
+
+.seller-card-name {
+    text-decoration: none;
+    color: black;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.seller-card-name-link {
+    text-decoration: none;
+}
+
+.seller-card-desc {
+    margin: 10px 0;
+    color: #858585;
+}
+
+.seller-card-locality {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: #a1a1a1;
+}
+
+.seller-card-detail-button-positioner {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.detail-link {
+
+}
