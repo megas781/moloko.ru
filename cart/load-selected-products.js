@@ -33,7 +33,7 @@ fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + 
             <div class="product-price-per-item">${product['price']} руб/шт</div>
             <div class="product-total-price">${product['price'] * getItemAt(product['product_id'])} руб</div>
 
-            <div class="product-quantity stepper">
+            <div class="product-quantity stepper" productId="${product['product_id']}">
                 <span class="stepper-minus stepper-control">–</span>
                 <span class="stepper-number">1</span>
                 <span class="stepper-plus stepper-control">+</span>

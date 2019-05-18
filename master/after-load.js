@@ -1,21 +1,24 @@
 //Методы, исполняемые после полной загрузки страницы
 
+
 //Определение уже лежащих в корзине товаров при загрузке страницы
-document.querySelectorAll('.product-card').forEach(function (product) {
-
+document.querySelectorAll('.add-to-cart-button').forEach(function (addToCartButton) {
     //Для кнопки "В корзину"
-    let addToCardButton = product.querySelector('.add-to-cart-button');
-    let productId = addToCardButton.getAttribute('productId');
+    let productId = addToCartButton.getAttribute('productId');
     if (getItemAt(productId)) {
-        addToCardButton.classList.add('tapped');
-        addToCardButton.textContent = 'В корзине';
+        addToCartButton.classList.add('tapped');
+        addToCartButton.textContent = 'В корзине';
     }
-
-    //Для числа в stepper'e
-    let stepperNumberNode = product.querySelector('.stepper-number');
-    stepperNumberNode.textContent = getItemAt(productId) ? getItemAt(productId) : '1';
-
 });
+//Определение количества уже лежащих в корзине товаров при загрузке страницы для степпера
+document.querySelectorAll('.stepper').forEach(function (stepper) {
+    //Для числа в stepper'e
+    let stepperNumberNode = stepper.querySelector('.stepper-number');
+    let productId = stepper.getAttribute('productId');
+    stepperNumberNode.textContent = getItemAt(productId) ? getItemAt(productId) : '1';
+});
+
+
 //Определение количества уже лежащих в корзине товаров при загрузке страницы для кнопки корзины
 if (getCartLength() > 0) {
     document.querySelector('#nav-cart').textContent = 'Корзина (' + getCartLength() + ')';

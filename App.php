@@ -48,9 +48,7 @@ class App {
         return $this->conn->query("select * from mos_cities")->fetch_all(MYSQLI_ASSOC);
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getSellers($count = 0, $randomized = false) {
 
         if ($randomized) {
