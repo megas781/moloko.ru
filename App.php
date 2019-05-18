@@ -23,6 +23,11 @@ class App {
         return self::$_instance;
     }
 
+    //универсальный fetcher данных
+    public function fetchAssocData($query) {
+        return $this->conn->query($query)->fetch_all(MYSQLI_ASSOC);
+    }
+
     //importing
     public function includeHeaderWithParams($params = []) {
 
@@ -191,6 +196,40 @@ class App {
     }
     public function printThreeRandomSellers() {
         $this->printArrayOfSellers($this->getSellers(3, true));
+    }
+
+    public function printCartProductCell($item) {
+        ?>
+
+        <section class="product">
+
+            <img class="product-image" src="/images/milk.png" alt="image">
+
+            <div class="product-info">
+                <a class="product-title" href="/products/detail/">Молоко пастеризованное 3%, 1л</a>
+                <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
+                <div class="seller">
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span><a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
+                    <div class="seller-locality">Село Слюсарёво, МО</div>
+                </div>
+            </div>
+
+            <div class="product-controls">
+                <div>
+                    <div class="product-price-per-item">230 руб/шт</div>
+                    <div class="product-total-price">230 руб</div>
+
+                    <div class="product-quantity stepper">
+                        <span class="stepper-minus stepper-control">–</span>
+                        <span class="stepper-number">1</span>
+                        <span class="stepper-plus stepper-control">+</span>
+                    </div>
+                </div>
+
+                <div class="delete-button"></div>
+            </div>
+        </section>
+        <?php
     }
 }
 

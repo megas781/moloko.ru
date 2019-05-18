@@ -23,7 +23,6 @@ echo '<pre>';
 echo '</pre>';
 
 ?>
-
 <section class="the-product">
 
     <img class="the-product__image" src="<?php echo $product['image_url'] ?>" alt="image">

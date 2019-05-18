@@ -9,13 +9,17 @@ function getCart() {
 function getCartLength() {
     return Object.entries(getCart()).length;
 }
+function getSelectedProductIds() {
+    return Object.keys(getCart());
+}
 //проверить наличие товара в корзине
-function checkItemAt(product_id) {
-    if (getCart()[product_id]) {
-        return true;
-    } else {
-        return false;
-    }
+function getItemAt(product_id) {
+    return getCart()[product_id];
+    // if (getCart()[product_id]) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
 }
 //добавить товар в корзину
 function addItem(product_id, quantity) {
@@ -35,7 +39,7 @@ document.querySelectorAll('.product-card').forEach(function (product) {
     let addToCardButton = product.querySelector('.add-to-cart-button');
     let product_id = product.querySelector('.product_id_holder').value;
 
-    if (checkItemAt(product_id)) {
+    if (getItemAt(product_id)) {
         addToCardButton.classList.add('tapped');
         addToCardButton.textContent = 'В корзине';
     }

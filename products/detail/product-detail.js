@@ -1,13 +1,13 @@
 let theAddToCartButton = document.querySelector('#detail-product-add-to-cart-button');
-let productId = theAddToCartButton.getAttribute('productId');
-if (checkItemAt(productId)) {
+let productId = new URL(location.href).searchParams.get('product_id');
+if (getItemAt(productId)) {
     theAddToCartButton.classList.add('tapped');
     theAddToCartButton.textContent = 'В корзине';
 }
 
 document.querySelector('#detail-product-add-to-cart-button').addEventListener("click", function (e) {
 
-    let productId = this.getAttribute('productId');
+    let productId = new URL(location.href).searchParams.get('product_id');
     let productNumber = this.parentElement.querySelector('.stepper-number').textContent;
 
     if (this.textContent === 'В корзину') {
