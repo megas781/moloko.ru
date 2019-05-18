@@ -6,6 +6,9 @@ function getCart() {
         return {};
     }
 }
+function getCartLength() {
+    return Object.entries(getCart()).length;
+}
 //проверить наличие товара в корзине
 function checkItemAt(product_id) {
     if (getCart()[product_id]) {
@@ -65,11 +68,14 @@ document.querySelectorAll('.product-card').forEach(function (product, key, paren
     let productNumber = product.querySelector('.stepper-number');
     let addToCartButton = product.querySelector('.add-to-cart-button');
 
+    //Тут то, что происходит при клике на кнопку "В корзину"
     addToCartButton.addEventListener('click', function (e) {
         if (addToCartButton.textContent === 'В корзину') {
 
+            //Товар добавляется в локальное хранилище
             addItem(productId, productNumber.textContent);
 
+            //Изменяется внешний вид кнопки
             addToCartButton.textContent = 'В корзине';
             addToCartButton.classList.toggle('tapped');
 
@@ -80,6 +86,15 @@ document.querySelectorAll('.product-card').forEach(function (product, key, paren
 
             removeItem(productId);
         }
+
+        //В любом случае изменяется кол-во товаров в корзине
+        let cartLength = getCartLength();
+        if (cartLength != 0) {
+            document.querySelector('#nav-cart').textContent = 'Корзина (' + cartLength + ')';
+        } else {
+            document.querySelector('#nav-cart').textContent = 'Корзина';
+        }
+
         console.log(localStorage);
     });
 
@@ -101,6 +116,10 @@ document.querySelectorAll('.product-card').forEach(function (product, key, paren
 //     value.addEventListener('mouseover', addToCardButtonTappedHover);
 //     value.addEventListener('mouseout', addToCardButtonTappedHover);
 // });
+
+
+
+
 
 
 

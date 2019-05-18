@@ -56,7 +56,7 @@
 
         </div>
 
-        <a class="nav-item nav-cart <?php echo($params['page_id'] == 'cart' ? 'active' : '') ?>"
+        <a id="nav-cart" class="nav-item nav-cart <?php echo($params['page_id'] == 'cart' ? 'active' : '') ?>"
            href="http://moloko.glebkalachev.ru/cart/">Корзина</a>
     </div>
 </nav>
