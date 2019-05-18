@@ -82,7 +82,27 @@ document.querySelectorAll('.product-card').forEach(function (product, key, paren
         }
         console.log(localStorage);
     });
+
 });
+
+//Чтобы у нажатой кнопки "add-to-cart" при наведении текст менялся на "Убрать"
+// document.querySelectorAll('.add-to-cart-button').forEach(function (value) {
+//     let addToCardButtonTappedHover = function (e) {
+//         if (this.textContent == 'В корзине') {
+//             this.textContent = 'Убрать';
+//         } else if (this.textContent == 'Убрать') {
+//             if (this.classList.contains('tapped')) {
+//                 this.textContent = 'В корзине';
+//             } else {
+//                 this.textContent = 'В корзину';
+//             }
+//         }
+//     }
+//     value.addEventListener('mouseover', addToCardButtonTappedHover);
+//     value.addEventListener('mouseout', addToCardButtonTappedHover);
+// });
+
+
 
 
 
