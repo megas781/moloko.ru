@@ -46,37 +46,49 @@ class App {
     /**
      * @return mixed
      */
-    public function getSellers($count = 0) {
+    public function getSellers($count = 0, $randomized = false) {
+
+        if ($randomized) {
+            $options = ' order by Rand()';
+        } else {
+            $options = '';
+        }
 
         if ($count != 0) {
-            $limiting = ' limit ' . $count;
-        } else {
-            $limiting = '';
+            $options .= ' limit ' . $count;
         }
 
         return $this->conn->query("
         select * from sellers s inner join villages v on s.village_id = v.village_id
-        " . $limiting)->fetch_all(MYSQLI_ASSOC);
+        " . $options)->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProducts($count = 0) {
+    public function getProducts($count = 0, $randomized = false) {
 
-        if ($count != 0) {
-            $limiting = ' limit ' . $count;
+
+        if ($randomized) {
+            $options = ' order by Rand()';
         } else {
-            $limiting = '';
+            $options = '';
         }
+        if ($count != 0) {
+            $options .= ' limit ' . $count;
+        }
+
 
         return $this->conn->query("
         select * from products p 
             join seller_to_products stp on p.product_id = stp.product_id 
             join sellers s on stp.seller_id = s.seller_id 
-            join villages v on s.village_id = v.village_id 
-        " . $limiting)->fetch_all(MYSQLI_ASSOC);
+            join villages v on s.village_id = v.village_id
+        " . $options)->fetch_all(MYSQLI_ASSOC);
     }
-    public function getProductsBySellerId($id) {
+    public function getProductsBySellerId($seller_id) {
         return $this->conn->query("
-        select * from (select * from seller_to_products where seller_id = " . $id . ") stp join products p on stp.product_id = p.product_id;
+        select * from (select * from sellers where seller_id = " . $seller_id . ") s 
+            join seller_to_products stp on s.seller_id = stp.seller_id 
+            join villages v on s.village_id = v.village_id 
+            join products p on stp.product_id = p.product_id
         ")->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -103,8 +115,8 @@ class App {
         $returnValue = mb_substr($returnValue,0,strlen($returnValue) - 2) . '...';
 
         return $returnValue;
-    }
 
+    }
 
     //View controlling
     public function printProductCell($item) {
@@ -115,8 +127,8 @@ class App {
             <a href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-card-image" src="<?php echo $item['image_url'] ?>" alt="image"></a>
             <a class="product-card-title" href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
             <p class="product-card-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
-            <div class="seller">
-                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="seller-name-link" href="/sellers/detail/?seller_id=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a></div>
+            <div class="product-detail-seller">
+                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="product-detail-seller-name-link" href="/sellers/detail/?seller_id=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a></div>
                 <div class="seller-locality">пос. <?php echo $item['village'] ?></div>
             </div>
             <div class="flex-space"></div>
@@ -174,11 +186,11 @@ class App {
         }
     }
 
-    public function printThreeProducts() {
-        $this->printArrayOfProducts($this->getProducts(3));
+    public function printThreeRandomProducts() {
+        $this->printArrayOfProducts($this->getProducts(3, true));
     }
-    public function printThreeSellers() {
-        $this->printArrayOfSellers($this->getSellers(3));
+    public function printThreeRandomSellers() {
+        $this->printArrayOfSellers($this->getSellers(3, true));
     }
 }
 
