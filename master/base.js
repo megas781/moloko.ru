@@ -40,8 +40,10 @@ document.querySelectorAll('.product-card').forEach(function (product) {
         addToCardButton.textContent = 'В корзине';
     }
 });
-
-
+//Определение количества уже лежащих в корзине товаров при загрузке страницы для кнопки корзины
+if (getCartLength() > 0) {
+    document.querySelector('#nav-cart').textContent = 'Корзина (' + getCartLength() + ')';
+}
 
 //Функционал кнопок stepper'a
 document.querySelectorAll('.stepper').forEach(function (value, key, parent) {
