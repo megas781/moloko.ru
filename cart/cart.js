@@ -1,17 +1,32 @@
 //Этот скрипт подгружается из load-selected-products.js
 function recalculateSumup() {
+    //полная сумма за продукты
     document.querySelector('.js-products-price').textContent = String(getTotalPrice()) + ' руб';
+    //полная сумма с доставкой
     document.querySelector('.js-total-price').textContent = String(getTotalPrice() + 449) + ' руб';
 
+    //Кнопка "Оформить заказ"
+    let checkoutButton = document.querySelector('#checkout-button');
+
+    //Обновлеие счетчика корзины
     if (getCartLength()) {
+        //В корзине что-то есть. Корзина со счетчиком
         document.querySelector('.nav-cart').textContent = 'Корзина (' + getCartLength() + ')';
 
+        //Убрать сообщение о пустой корзине
         let cartIsEmptyLabel = document.querySelector('#cart-is-empty');
         if (cartIsEmptyLabel) {
             document.querySelector('#cart-products-container').removeChild(cartIsEmptyLabel);
         }
+
+        checkoutButton.classList.remove('disabled');
+        checkoutButton.removeAttribute('disabled');
+
     } else {
+        //В корзине пусто. Корзина без счетчика
         document.querySelector('.nav-cart').textContent = 'Корзина';
+
+        //Добавить сообщение о пустой корзине
         let cartIsEmptyLabel = document.createElement('div');
         cartIsEmptyLabel.id = 'cart-is-empty';
         cartIsEmptyLabel.innerHTML = `
@@ -20,7 +35,14 @@ function recalculateSumup() {
         <a href="http://moloko.glebkalachev.ru/products" class="goto-products-link blue-button">Перейти к товарам</a>
         `;
         document.querySelector('#cart-products-container').appendChild(cartIsEmptyLabel);
+
+        checkoutButton.classList.add('disabled');
+        checkoutButton.disabled = true;
     }
+
+    //Счетчик для формы
+    document.querySelector('.js-cart-size').value = getCartLength();
+
 }
 
 //Первоначальный подсчет при загрузке стрницы

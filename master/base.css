@@ -115,6 +115,14 @@ textarea {
     background-color: #adadad;
 }
 
+.blue-button.disabled {
+    background-color: #b9b9b9;
+}
+.blue-button.disabled:hover {
+    cursor: initial;
+}
+
+
 .flex-centering {
     display: flex;
     flex-direction: column;

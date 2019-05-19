@@ -1,5 +1,5 @@
 //Подгрузка выбранных товаров
-fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + getSelectedProductIds().toString(), {headers: {'123mymymy' : 'yayaya'}}).then(function (response) {
+fetch('http://moloko.glebkalachev.ru/cart/get-cart-items.php?selectedProducts=' + getSelectedProductIds().toString(), {headers: {'123mymymy' : 'yayaya'}}).then(function (response) {
     return response.text();
 }).then(function (productsJSON) {
     

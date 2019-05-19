@@ -28,7 +28,7 @@ $APP->includeHeaderWithParams($metainfo);
 
             <tr>
                 <td class="js-products-label">Товары</td>
-                <td class="js-products-price"></td>
+                <td class="js-products-price">0 руб</td>
             </tr>
             <tr>
                 <td>Доставка</td>
@@ -36,12 +36,14 @@ $APP->includeHeaderWithParams($metainfo);
             </tr>
             <tr style="font-weight: bold">
                 <td>Итого</td>
-                <td class="js-total-price">1139 руб</td>
+                <td class="js-total-price">0 руб</td>
             </tr>
 
         </table>
-        <form action="/cart/order/" method="post">
-            <input type="submit" class="blue-button" value="Оформить заказ" >
+        <form action="/cart/make-order.php" method="post">
+            <input type="hidden" name="cartSize" value="" class="js-cart-size">
+
+            <input id="checkout-button" type="submit" class="blue-button disabled" value="Оформить заказ" disabled>
         </form>
 
     </div>

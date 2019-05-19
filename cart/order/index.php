@@ -4,7 +4,8 @@ require_once '../../App.php';
 $metainfo = [
     'style_path' => HTTP_ROOT . 'cart/order/order.css',
     'page_id' => 'cart',
-    'page_title' => 'Оформление заказа'
+    'page_title' => 'Оформление заказа',
+    'script_path' => HTTP_ROOT . 'cart/order/order.js'
 ];
 
 $APP->includeHeaderWithParams($metainfo);
@@ -49,16 +50,16 @@ $APP->includeHeaderWithParams($metainfo);
         <table class="summary-table" cellspacing="8">
 
             <tr>
-                <td>Товары(3)</td>
-                <td>690 руб</td>
+                <td class="js-products-label">Товары</td>
+                <td class="js-products-price"></td>
             </tr>
             <tr>
                 <td>Доставка</td>
-                <td>449 руб</td>
+                <td class="js-delivery-price">449 руб</td>
             </tr>
             <tr style="font-weight: bold">
                 <td>Итого</td>
-                <td>1139 руб</td>
+                <td class="js-total-price">1139 руб</td>
             </tr>
 
         </table>
@@ -67,4 +68,4 @@ $APP->includeHeaderWithParams($metainfo);
     </div>
 </form>
 
-<?php $APP->includeFooterWithParams(); ?>
+<?php $APP->includeFooterWithParams($metainfo); ?>
