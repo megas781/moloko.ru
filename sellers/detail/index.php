@@ -25,7 +25,7 @@ $APP->includeHeaderWithParams($metainfo);
 </div>
 
 
-<img class="product-detail-seller-avatar" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца">
+<img class="the-product-detail-seller-avatar" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца">
 
 <p class="seller-desc"><?php echo $seller['description'] ?></p>
 
