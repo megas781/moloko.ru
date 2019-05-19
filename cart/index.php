@@ -27,7 +27,7 @@ $APP->includeHeaderWithParams($metainfo);
         <table class="summary-table" cellspacing="8">
 
             <tr>
-                <td class="js-products-label">Товары()</td>
+                <td class="js-products-label">Товары</td>
                 <td class="js=products-price">690 руб</td>
             </tr>
             <tr>

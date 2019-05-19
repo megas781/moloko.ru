@@ -5,7 +5,7 @@
 document.querySelectorAll('.add-to-cart-button').forEach(function (addToCartButton) {
     //Для кнопки "В корзину"
     let productId = addToCartButton.getAttribute('productId');
-    if (getItemAt(productId)) {
+    if (getQuantityOf(productId)) {
         addToCartButton.classList.add('tapped');
         addToCartButton.textContent = 'В корзине';
     }
@@ -15,7 +15,7 @@ document.querySelectorAll('.stepper').forEach(function (stepper) {
     //Для числа в stepper'e
     let stepperNumberNode = stepper.querySelector('.stepper-number');
     let productId = stepper.getAttribute('productId');
-    stepperNumberNode.textContent = getItemAt(productId) ? getItemAt(productId) : '1';
+    stepperNumberNode.textContent = getQuantityOf(productId) ? getQuantityOf(productId) : '1';
 });
 
 
@@ -37,7 +37,7 @@ document.querySelectorAll('.stepper').forEach(function (stepper, key, parent) {
         if (Number(stepperNumberNode.textContent) > 1) {
             stepperNumberNode.textContent = String(Number(stepperNumberNode.textContent) - 1);
         }
-        if (getItemAt(productId) && getItemAt(productId) > 1) {
+        if (getQuantityOf(productId) && getQuantityOf(productId) > 1) {
             addItem(productId, stepperNumberNode.textContent);
             console.log(localStorage);
         }
@@ -45,7 +45,7 @@ document.querySelectorAll('.stepper').forEach(function (stepper, key, parent) {
     plusButton.addEventListener('click', function (e) {
         stepperNumberNode.textContent = Number(stepperNumberNode.textContent) + 1;
 
-        if (getItemAt(productId) && Number(stepperNumberNode.textContent) > 1) {
+        if (getQuantityOf(productId) && Number(stepperNumberNode.textContent) > 1) {
             addItem(productId, stepperNumberNode.textContent);
             console.log('plus  after step: ' + localStorage.getItem('cart'));
         }

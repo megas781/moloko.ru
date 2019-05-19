@@ -8,25 +8,50 @@ function getCart() {
         return {};
     }
 }
+//достать кол-во различных товаров в корзине
 function getCartLength() {
     return Object.entries(getCart()).length;
 }
+//достать id всех товаров. Это нужно для ajax запроса
 function getSelectedProductIds() {
     return Object.keys(getCart());
 }
-//проверить наличие товара в корзине
-function getItemAt(product_id) {
-    return getCart()[product_id];
+//Вернуть кол-во товара в корзине
+function getQuantityOf(productId) {
+    return getCart()[productId];
 }
 //добавить товар в корзину
-function addItem(product_id, quantity) {
+function addItem(productId, quantity) {
     let array =  getCart();
-    array[product_id] = quantity;
+    array[productId] = quantity;
     localStorage.setItem('cart', JSON.stringify(array));
 }
 //удалить товар из корзины
-function removeItem(product_id) {
+function removeItem(productId) {
     let array =  getCart();
-    array[product_id] = undefined;
+    array[productId] = undefined;
     localStorage.setItem('cart', JSON.stringify(array));
+}
+
+
+
+//Работа с ценами
+function getPrices() {
+    if (JSON.parse(localStorage.getItem('prices'))) {
+        return JSON.parse(localStorage.getItem('prices'));
+    } else {
+        return {};
+    }
+}
+//Вернуть цену товара по ID
+function getPriceOf(productId) {
+    return getPrices()[productId];
+}
+function calculateProductTotalPrice(productId) {
+    return getPriceOf(productId) * getQuantityOf(productId);
+}
+function addPriceOf(productId, price) {
+    let array =  getPrices();
+    array[productId] = price;
+    localStorage.setItem('prices', JSON.stringify(array));
 }

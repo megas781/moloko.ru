@@ -1,6 +1,6 @@
 let theAddToCartButton = document.querySelector('#detail-product-add-to-cart-button');
 let productId = new URL(location.href).searchParams.get('product_id');
-if (getItemAt(productId)) {
+if (getQuantityOf(productId)) {
     theAddToCartButton.classList.add('tapped');
     theAddToCartButton.textContent = 'В корзине';
 }

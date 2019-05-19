@@ -3,17 +3,24 @@ fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + 
     return response.text();
 }).then(function (productsJSON) {
 
-
+    //Парсим вернувшийся нам с сервера JSON с продуктами
     let products = JSON.parse(productsJSON);
+    //Определяем контейнер, в который будем вставлять ячейки выбранных товаров
     let container = document.querySelector('#cart-products-container');
 
-    let k = 0;
-
+    //Проходимся по каждому товару
     for (let i = 0; i < products.length; i++) {
 
+        //Создаем безликий div-wrapper. Просто потому что не хочу создавать section и добавлять ему классы
         let cartCellNode = document.createElement('div');
+        //Извлекаем товар
         let product = products[i];
+        //Перед началом генерации ячейки добавим данные о цене товара для работы дальнейшего js'a
+        addPriceOf(product['product_id'], product['price']);
+
         console.log(product);
+
+        //Непосредственно верстка ячейки
         cartCellNode.innerHTML = `
 <section class="product">
 
@@ -31,7 +38,7 @@ fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + 
     <div class="product-controls">
         <div>
             <div class="product-price-per-item">${product['price']} руб/шт</div>
-            <div class="product-total-price" per-one="${product['price']}">${product['price'] * getItemAt(product['product_id'])} руб</div>
+            <div class="product-total-price" per-one="${product['price']}">${product['price'] * getQuantityOf(product['product_id'])} руб</div>
 
             <div class="product-quantity stepper" productId="${product['product_id']}">
                 <span class="stepper-minus stepper-control">–</span>
@@ -45,7 +52,7 @@ fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + 
 </section>
             `;
 
-
+        //Добавляем новоиспеченную ячейку в контейнер
         container.appendChild(cartCellNode);
     }
 
@@ -92,7 +99,7 @@ fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + 
 //     <div class="product-controls">
 //         <div>
 //             <div class="product-price-per-item">${product['price']} руб/шт</div>
-//             <div class="product-total-price">${product['price'] * getItemAt(product['product_id'])} руб</div>
+//             <div class="product-total-price">${product['price'] * getQuantityOf(product['product_id'])} руб</div>
 //
 //             <div class="product-quantity stepper">
 //                 <span class="stepper-minus stepper-control">–</span>
