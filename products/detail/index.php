@@ -55,10 +55,10 @@ echo '</pre>';
 
 <h2>О продавце</h2>
 
-<section class="product-detail-seller">
-    <img class="product-detail-seller-avatar" src="<?php echo $product['avatar_url'] ?>" alt="">
-    <div class="product-detail-seller-info">
-        <a class="product-detail-seller-name-link" href="/sellers/detail/?seller_id=<?php echo $product['seller_id'] ?>"><h2><?php echo $product['surname'] . ' ' . $product['name'] ?></h2></a>
+<section class="the-product-detail-seller">
+    <img class="the-product-detail-seller-avatar" src="<?php echo $product['avatar_url'] ?>" alt="">
+    <div class="the-product-detail-seller-info">
+        <a class="the-product-detail-seller-name-link" href="/sellers/detail/?seller_id=<?php echo $product['seller_id'] ?>"><h2><?php echo $product['surname'] . ' ' . $product['name'] ?></h2></a>
         <table>
             <tr>
                 <td>Телефон:</td>

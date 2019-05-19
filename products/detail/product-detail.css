@@ -43,7 +43,7 @@
 
 
 
-.product-detail-seller {
+.the-product-detail-seller {
     padding: 16px;
     background-color: #f7f7f7;
 
@@ -54,16 +54,16 @@
     position: relative;
 }
 
-.product-detail-seller-name-link {
+.the-product-detail-seller-name-link {
 
 }
 
-.product-detail-seller-avatar {
+.the-product-detail-seller-avatar {
     width: 260px;
     height: 260px;
 }
 
-.product-detail-seller-info {
+.the-product-detail-seller-info {
     padding: 0 16px;
 }
 
