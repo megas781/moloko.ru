@@ -28,7 +28,7 @@ $APP->includeHeaderWithParams($metainfo);
 
             <tr>
                 <td class="js-products-label">Товары</td>
-                <td class="js=products-price">690 руб</td>
+                <td class="js-products-price"></td>
             </tr>
             <tr>
                 <td>Доставка</td>
