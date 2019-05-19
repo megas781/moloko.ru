@@ -1,0 +1,12 @@
+.contacts-table {
+    border-collapse: collapse;
+}
+.contacts-table td, .contacts-table th {
+    padding: 8px;
+}
+.contacts-table tr:first-child {
+
+}
+.contacts-table tr:nth-child(2n - 1) {
+    background-color: #f4f4f4;
+}
