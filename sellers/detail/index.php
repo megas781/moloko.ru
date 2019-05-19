@@ -67,4 +67,4 @@ $APP->includeHeaderWithParams($metainfo);
 <?php $APP->printArrayOfProducts($APP->getProductsBySellerId($_GET['seller_id'])) ?>
 </div>
 
-<?php $APP->includeFooterWithParams(); ?>
+<?php $APP->includeFooterWithParams($metainfo); ?>

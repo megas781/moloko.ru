@@ -1,3 +1,9 @@
+.footer {
+    /*В корзине футер не должен отображаться. Его заменяет sum up*/
+    visibility: hidden;
+}
+
+
 .product {
     padding: 16px;
     background-color: #f7f7f7;
@@ -81,7 +87,7 @@
 
 }
 
-.delete-button {
+.product-delete-button {
 
     background-image: url("../images/trash.png");
     background-size: contain;
@@ -114,4 +120,16 @@
 .summary-table {
     font-size: 18px;
     margin-right: 32px;
+}
+
+#cart-is-empty {
+    text-align: center;
+    font-family: "Roboto Condensed Light";
+}
+#cart-is-empty-label {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+#cart-is-empty-text {
+    font-size: 20px;
 }

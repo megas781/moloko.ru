@@ -2,7 +2,9 @@
 fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + getSelectedProductIds().toString(), {headers: {'123mymymy' : 'yayaya'}}).then(function (response) {
     return response.text();
 }).then(function (productsJSON) {
-
+    
+    console.log(`before error: ${productsJSON}`);
+    
     //Парсим вернувшийся нам с сервера JSON с продуктами
     let products = JSON.parse(productsJSON);
     //Определяем контейнер, в который будем вставлять ячейки выбранных товаров
@@ -47,7 +49,7 @@ fetch('http://moloko.glebkalachev.ru/cart/getCartItems.php?selectedProducts=' + 
             </div>
         </div>
 
-        <div class="delete-button"></div>
+        <div class="product-delete-button" productId="${product['product_id']}"></div>
     </div>
 </section>
             `;
