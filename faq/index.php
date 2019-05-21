@@ -11,46 +11,32 @@ $APP->includeHeaderWithParams($metainfo);
 
 ?>
 
-<h2>Что вы делаете?</h2>
-<p>Молоко.ру – организация, занимающаяся доставкой домашнего молока от фермеров.</p>
-<h2>На кого вы работаете?</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid atque aut doloremque et facilis fugiat hic illum inventore iste laborum laudantium, officia officiis quo vel, voluptates, voluptatum! Explicabo, tenetur!</p>
-<h2>Как происходит оплата?</h2>
-<p>Lorem ipsum dolor sit amet, consectetur можно ознакомиться <a href="http://moloko.glebkalachev.ru/about/" target="_blank">здесь</a>. Ad adipisci assumenda cupiditate, dolore earum expedita inventore ipsam, laboriosam mollitia nostrum omnis perferendis quisquam quos saepe, sit vel voluptatum. Accusantium ad cumque dicta dolores eum eveniet expedita harum incidunt nam nemo nostrum omnis quas quo reiciendis, suscipit tempora tenetur veritatis voluptates.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.</p>
+<h2>Общие вопросы</h2>
+<h3>Чем занимается Молоко.ру?</h3>
+<p>Молоко.ру - сервис, занимающийся интеграцией доставки к частным фермерам. Вы покупаете натуральные продукты у настоящих людей, а мы являемся посредником между вами.</p>
+<h3>Чем Молоко.ру отличается от других служб доставки?</h3>
+<p>В отличие от других служб доставки Молоко.ру занимается именно молочной продукцией, доставка которой является достаточно трудоемким процессом, который решается благодаря нашей системе проложения курьерских маршрутов.</p>
+<h3>Работает ли Молоко.ру за Московской областью?</h3>
+<p>Сейчас данный проект рассчитан только на Московскую область.</p>
+<h3>Кто такая Римма?</h3>
+<p>Римма - это наш милый контент-менеджер и студент в Московском Политехе на специальности "Прикладная информатика", а мы её веберы 😊.</p>
 
-<h2>В течение какого времени вы доставляете молоко?</h2>
-<p>Обычно в течение 3 дней независимо от дня недели.</p>
+<h2>Клиентам:</h2>
+<h3>В течение какого времени вы доставляете?</h3>
+<p>Наша логистическая система ставит в приоритет доставку свежих продуктов. Молоко.ру гарантирует доставку быстропортящихся продуктов суточной свежести. Но очередь за свежим молоком занимает около 2-3 дней.</p>
+<h3>Как проходит процесс заказа?</h3>
+<p>Вы добавляете в корзину интересующие вас товары, выбираете их количество и нажимаете оформить заказ. На следующей странице вам нужно будет заполнить важные контактные данные: ФИО, адрес и номер телефона. В течение 30 минут вам перезвонит оператор, чтобы подтвердить заказ.</p>
+<h3>Как происходит оплата товара?</h3>
+<p>На данный момент на сайте действует только оплата наличными или картой у курьера при получении товара. По техническим причинам онлайн оплата недоступна.</p>
 
-<h2>Почему здесь дороже чем в магазине?</h2>
-<p>Деревенского молока намного меньше обычного покупного, из-за чего цена повышается. К тому же цены устанавливаются самими продавцами.</p>
+<h2>Продавцам:</h2>
+<h3>Кто является ответственным за резервуары для доставки продуктов (бутылки, бидоны, контейнеры)?</h3>
+<p></p>
+<h3>Вы подаете мою продукцию. Какая вам от этого выгода?</h3>
+<p>Наш доход составляет оплату за доставку + 10% от стоимости чека. Это минимальный возможный взнос для существования нашего сервиса.</p>
 
-<h2>Что вы делаете?</h2>
-<p>Молоко.ру – организация, занимающаяся доставкой домашнего молока от фермеров.</p>
-<h2>На кого вы работаете?</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid atque aut doloremque et facilis fugiat hic illum inventore iste laborum laudantium, officia officiis quo vel, voluptates, voluptatum! Explicabo, tenetur!</p>
-<h2>Как происходит оплата?</h2>
-<p>Lorem ipsum dolor sit amet, consectetur можно ознакомиться <a href="http://moloko.glebkalachev.ru/about/" target="_blank">здесь</a>. Ad adipisci assumenda cupiditate, dolore earum expedita inventore ipsam, laboriosam mollitia nostrum omnis perferendis quisquam quos saepe, sit vel voluptatum. Accusantium ad cumque dicta dolores eum eveniet expedita harum incidunt nam nemo nostrum omnis quas quo reiciendis, suscipit tempora tenetur veritatis voluptates.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.</p>
 
-<h2>В течение какого времени вы доставляете молоко?</h2>
-<p>Обычно в течение 3 дней независимо от дня недели.</p>
 
-<h2>Почему здесь дороже чем в магазине?</h2>
-<p>Деревенского молока намного меньше обычного покупного, из-за чего цена повышается. К тому же цены устанавливаются самими продавцами.</p>
 
-<h2 id="last-rrr">Что вы делаете?</h2>
-<p>Молоко.ру – организация, занимающаяся доставкой домашнего молока от фермеров.</p>
-<h2>На кого вы работаете?</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid atque aut doloremque et facilis fugiat hic illum inventore iste laborum laudantium, officia officiis quo vel, voluptates, voluptatum! Explicabo, tenetur!</p>
-<h2>Как происходит оплата?</h2>
-<p>Lorem ipsum dolor sit amet, consectetur можно ознакомиться <a href="http://moloko.glebkalachev.ru/about/" target="_blank">здесь</a>. Ad adipisci assumenda cupiditate, dolore earum expedita inventore ipsam, laboriosam mollitia nostrum omnis perferendis quisquam quos saepe, sit vel voluptatum. Accusantium ad cumque dicta dolores eum eveniet expedita harum incidunt nam nemo nostrum omnis quas quo reiciendis, suscipit tempora tenetur veritatis voluptates.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur, dignissimos eius harum libero porro quod sequi ullam vitae voluptatem.</p>
-
-<h2>В течение какого времени вы доставляете молоко?</h2>
-<p>Обычно в течение 3 дней независимо от дня недели.</p>
-
-<h2>Почему здесь дороже чем в магазине?</h2>
-<p>Деревенского молока намного меньше обычного покупного, из-за чего цена повышается. К тому же цены устанавливаются самими продавцами.</p>
 
 <?php $APP->includeFooterWithParams(); ?>
