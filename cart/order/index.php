@@ -20,17 +20,17 @@ $APP->includeHeaderWithParams($metainfo);
 
     <div class="text-input">
         <label for="fio">Фамилия, имя, отчество*</label>
-        <input class="textbox" type="text" id="fio">
+        <input class="textbox js-order-textbox" type="text" id="fio">
     </div>
 
     <div class="text-input">
         <label for="address">Адрес*</label>
-        <input class="textbox" type="text" id="address">
+        <input class="textbox js-order-textbox" type="text" id="address">
     </div>
 
     <div class="text-input">
         <label for="phone-number">Номер телефона*</label>
-        <input class="textbox" type="text" id="phone-number">
+        <input class="textbox js-order-textbox" type="text" id="phone-number">
     </div>
 
     <h3>Способ оплаты</h3>
@@ -51,7 +51,7 @@ $APP->includeHeaderWithParams($metainfo);
 
             <tr>
                 <td class="js-products-label">Товары</td>
-                <td class="js-products-price"></td>
+                <td class="js-products-price">0 руб</td>
             </tr>
             <tr>
                 <td>Доставка</td>
@@ -59,12 +59,12 @@ $APP->includeHeaderWithParams($metainfo);
             </tr>
             <tr style="font-weight: bold">
                 <td>Итого</td>
-                <td class="js-total-price">1139 руб</td>
+                <td class="js-total-price">0 руб</td>
             </tr>
 
         </table>
 
-        <input type="submit" class="blue-button" value="Подтвердить заказ">
+        <input id="validate-order-button" type="submit" class="blue-button disabled" value="Подтвердить заказ" disabled>
     </div>
 </form>
 
