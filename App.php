@@ -109,6 +109,13 @@ class App {
         ")->fetch_assoc();
     }
 
+    public function getOrders() {
+        return $this->conn->query('select * from orders')->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getOrderById($id) {
+        return $this->conn->query('select * from orders where order_id = ' . $id . ';')->fetch_assoc();
+    }
+
     //Working with strings
     public function formatDescription($string) {
         $returnValue;
