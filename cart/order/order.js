@@ -1,3 +1,10 @@
+let fio = document.getElementById('fio');
+let address = document.getElementById('address');
+let phoneNumber = document.getElementById('phone-number');
+let paymentMethod = document.querySelector('input[name="payment-method"][checked]');
+let privacyPolicyArgeement = document.getElementById('privacy-agreement-checkbox');
+
+//Подгрузка суммы заказа
 function orderRecalculateSumup() {
 
     //полная сумма за продукты
@@ -6,38 +13,32 @@ function orderRecalculateSumup() {
     document.querySelector('.js-total-price').textContent = String(getTotalPrice() + 449) + ' руб';
 
 }
-
-orderRecalculateSumup();
-
-let k = 0;
-
+//Валидация введённых данных
 function validateInput() {
 
-    console.log(++k);
+    let fioValue = document.getElementById('fio').value.trim();
+    let addressValue = document.getElementById('address').value.trim();
+    let phoneNumberValue = document.getElementById('phone-number').value.trim();
+    let privacyPolicyArgeementAcceptedValue = document.getElementById('privacy-agreement-checkbox').checked;
 
-    let fio = document.getElementById('fio').value.trim();
-    let address = document.getElementById('address').value.trim();
-    let phoneNumber = document.getElementById('phone-number').value.trim();
-    let privacyPolicyArgeementAccepted = document.getElementById('privacy-agreement-checkbox').checked;
-
-    console.log(fio);
-    console.log(`address: ${address}`);
-    console.log(`phone  : ${phoneNumber}`);
-    console.log(`privacy: ${privacyPolicyArgeementAccepted}`);
+    console.log(fioValue);
+    console.log(`address: ${addressValue}`);
+    console.log(`phone  : ${phoneNumberValue}`);
+    console.log(`privacy: ${privacyPolicyArgeementAcceptedValue}`);
     console.log();
 
 
-    let fioValidated = fio.match(/^[А-Яа-яЁё-]{2,}\s+[А-Яа-яЁё-]{2,}($|\s+[А-Яа-яЁё-]{2,}$)/u);
+    let fioValidated = fioValue.match(/^[А-Яа-яЁё-]{2,}\s+[А-Яа-яЁё-]{2,}($|\s+[А-Яа-яЁё-]{2,}$)/u);
     // console.log(fioValidated);
-    let addressValidated = address.match(/^[\dА-Яа-яЁё\s,.-]{2,}$/u);
+    let addressValidated = addressValue.match(/^[\dА-Яа-яЁё\s,.-]{2,}$/u);
     // console.log(addressValidated);
-    let phoneNumberValidated = phoneNumber.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/u);
+    let phoneNumberValidated = phoneNumberValue.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/u);
     // console.log(`phoneNumberValidated: ${phoneNumberValidated}`);
     // console.log(privacyPolicyArgeement);
 
 
     let validateOrderButton = document.querySelector('#validate-order-button');
-    if (fioValidated && addressValidated && phoneNumberValidated && privacyPolicyArgeementAccepted) {
+    if (fioValidated && addressValidated && phoneNumberValidated && privacyPolicyArgeementAcceptedValue) {
         console.log('Валидируем!');
         validateOrderButton.classList.remove('disabled');
         validateOrderButton.disabled = false;
@@ -49,7 +50,38 @@ function validateInput() {
 
 }
 
+//вызов конфигурационных функций при загрузке
+orderRecalculateSumup();
+validateInput();
+
+console.log(localStorage.getItem('cart'));
+
 //Событие изменения текста в input'aх
 document.querySelectorAll('.js-order-textbox, #privacy-agreement-checkbox').forEach(function (value) {
     value.addEventListener('input', validateInput);
+});
+//Функционал кнопки "Подтвердить заказ"
+document.querySelector('#validate-order-button').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    $.ajax(
+        {
+            type: 'POST',
+            url: 'validate-the-order.php',
+            data: {
+                fio: fio.value,
+                address: address.value,
+                phoneNumber: phoneNumber.value,
+                paymentMethod: paymentMethod.value,
+                privacyPolicyArgeement: privacyPolicyArgeement.checked,
+                cart: getCart()
+            },
+            success: function (responseText, status, jqXHR) {
+                console.log(`one: ${responseText}`);
+                console.log(`two: ${status}`);
+                console.log(`tre: ${jqXHR}`);
+            }
+        }
+    );
+    
 });

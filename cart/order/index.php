@@ -12,7 +12,7 @@ $APP->includeHeaderWithParams($metainfo);
 
 ?>
 
-<form action="./success/" method="post" class="order-form">
+<form action="./validate-the-order.php" method="post" class="order-form">
 
     <div style="color: #999999">* - обязательное поле</div>
 
@@ -20,17 +20,17 @@ $APP->includeHeaderWithParams($metainfo);
 
     <div class="text-input">
         <label for="fio">Фамилия, имя, отчество*</label>
-        <input class="textbox js-order-textbox" type="text" id="fio">
+        <input class="textbox js-order-textbox" type="text" id="fio" name="fio" value="">
     </div>
 
     <div class="text-input">
         <label for="address">Адрес*</label>
-        <input class="textbox js-order-textbox" type="text" id="address">
+        <input class="textbox js-order-textbox" type="text" id="address" name="address" value="">
     </div>
 
     <div class="text-input">
         <label for="phone-number">Номер телефона*</label>
-        <input class="textbox js-order-textbox" type="text" id="phone-number">
+        <input class="textbox js-order-textbox" type="text" id="phone-number" name="phone-number" value="">
     </div>
 
     <h3>Способ оплаты</h3>
@@ -42,7 +42,7 @@ $APP->includeHeaderWithParams($metainfo);
     <h3>Дополнительно</h3>
     <textarea class="order-comment" name="order-comment" id="order-comment" placeholder="Расскажите, как быстрее добраться к вам, укажите код домофона или другую информацию, которая может пригодиться курьеру. "></textarea>
 
-    <label id="privacy-agreement" for="privacy-agreement-checkbox"><input type="checkbox" id="privacy-agreement-checkbox" value="checked"> Я принимаю условия
+    <label id="privacy-agreement" for="privacy-agreement-checkbox"><input type="checkbox" id="privacy-agreement-checkbox" name="privacy-agreement-accepted" value="checked" > Я принимаю условия
         <a href="#" target="_blank">Пользовательского соглашения</a> и даю своё согласие Яндексу на обработку моей персональной информации на условиях, определенных
         <a href="#" target="_blank">Политикой конфиденциальности</a>.</label>
 
