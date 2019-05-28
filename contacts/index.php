@@ -37,7 +37,7 @@ $APP->includeHeaderWithParams($metainfo);
     <tr>
         <td>2</td>
         <td>Влад Пинчер</td>
-        <td>181-321</td>
+        <td>181-322</td>
         <td>web-дизайнер, креативный директор</td>
         <td><a href="https://vk.com/densejer" target="_blank">densejer</a></td>
     </tr>
