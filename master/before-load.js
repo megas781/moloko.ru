@@ -2,8 +2,16 @@
 
 //достать данные корзины
 function getCart() {
-    if (JSON.parse(localStorage.getItem('cart'))) {
-        return JSON.parse(localStorage.getItem('cart'));
+
+    //тут случайно не null??
+    if (localStorage.getItem('cart')) {
+
+        //Мы можем пропарсить хоть какой-нибудь JSON??
+        if (JSON.parse(localStorage.getItem('cart'))) {
+            return JSON.parse(localStorage.getItem('cart'));
+        } else {
+            return {};
+        }
     } else {
         return {};
     }
