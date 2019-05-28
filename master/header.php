@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/header.css' ?>">
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/footer.css' ?>">
     <link rel="stylesheet" href="<?php echo $params['style_path'] ?>">
+<!--    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">-->
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
+
+<!--    JQuery – ты меня победил -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 
     <!--    Подключение Yandex.Map API-->
@@ -45,8 +50,9 @@
                 'products' => ['Товары', 'http://moloko.glebkalachev.ru/products/', 2],
                 'sellers' => ['Продавцы', 'http://moloko.glebkalachev.ru/sellers', 3],
 //                'about' => ['О сайте', 'http://moloko.glebkalachev.ru/about/', 4],
-                'faq' => ['F.A.Q', 'http://moloko.glebkalachev.ru/faq/', 5],
-                'contacts' => ['Контакты', 'http://moloko.glebkalachev.ru/contacts/', 6]
+                'faq' => ['Вопрос-Ответ', 'http://moloko.glebkalachev.ru/faq/', 5],
+                'contacts' => ['Контакты', 'http://moloko.glebkalachev.ru/contacts/', 6],
+
             ];
 
             foreach ($navItems as $page_id => $item) {
@@ -61,7 +67,11 @@
            href="http://moloko.glebkalachev.ru/cart/">Корзина</a>
     </div>
 </nav>
-<?php if ($_SERVER['REQUEST_URI'] != '/' and $_SERVER['REQUEST_URI'] != '/index.php'): ?>
+<?php if ($_SERVER['REQUEST_URI'] != '/' and $_SERVER['REQUEST_URI'] != '/index.php'):
+
+    //Добавляем корзину в $navItems после генерации панели навигации. Теперь корзина будет отображаться в хлебных крошках
+    $navItems['cart'] = ['Корзина'];
+    ?>
 <div class="breadcrumbs">
     <a class="breadcrumb-item first" href="">Главная</a>
     <span class="breadcrumb-item last"><?php echo $navItems[$params['page_id']][0] ?></span>
