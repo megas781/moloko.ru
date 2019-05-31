@@ -23,6 +23,11 @@ class App {
         return self::$_instance;
     }
 
+
+    public function performSqlQuery($query) {
+
+        $this->conn->query($query);
+    }
     //универсальный fetcher данных
     public function fetchAssocData($query) {
         return $this->conn->query($query)->fetch_all(MYSQLI_ASSOC);

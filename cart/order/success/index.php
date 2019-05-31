@@ -10,6 +10,12 @@ $metainfo = [
 $APP->includeHeaderWithParams($metainfo);
 
 ?>
+<script>
+    // Проверяем, чтобы при входе на страницу success корзина не была пуста (надо нужна другая, более правильная проверка)
+    if (getCartLength() === 0) {
+        location.replace('http://' + location.hostname + '/cart/');
+    }
+</script>
 
 <h1 class="success-label">Ваш заказ успешно оформлен!</h1>
 
