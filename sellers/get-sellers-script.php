@@ -2,7 +2,7 @@
 
 include_once '../App.php';
 
-print_r($_GET);
+//print_r($_GET);
 
 
 if (isset($_GET['locality'])) {
@@ -18,8 +18,8 @@ if (isset($_GET['locality'])) {
 
 if ($localityId === 'no-matter') {
     //Если у нас no-matter, то просто возвращаем ко всем городам
-    $cities = $APP->getCities();
-    echo json_encode($cities);
+    $sellers = $APP->getSellers();
+    echo json_encode($sellers);
     return;
 } else {
     //Здесь у нас в $localityId какой-то положительный Integer
@@ -28,7 +28,7 @@ if ($localityId === 'no-matter') {
     //У нас есть id! Давайте достанем данные населенного пункта
     $city = $APP->getCityById($localityId);
 
-    print_r($city);
+//    print_r($city);
 
     if ($city) {
         //если город найден, то...
@@ -64,8 +64,10 @@ if ($localityId === 'no-matter') {
 
         });
 
-        echo "sorted:\n";
-        print_r($sellersWithVillages);
+//        echo "sorted:\n";
+//        print_r($sellersWithVillages);
+
+        echo json_encode($sellersWithVillages);
 
     } else {
         //По идеи здесь должна быть какая-нибудь обработка ошибки, но я просто выведу всех продавцов

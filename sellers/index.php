@@ -33,7 +33,7 @@ $APP->includeHeaderWithParams($metainfo);
         <input type="submit" value="Искать">
     </div>
 </div>
-<div class="sellers">
+<div class="sellers" id="sellers">
 
     <?php
 

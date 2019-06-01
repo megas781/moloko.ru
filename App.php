@@ -195,6 +195,7 @@ class App {
         }
     }
 
+    //Важно. Существует дубликат реализация принта ячейки через js (!)
     public function printSellerCell($seller) {
         ?>
         <section class="seller-card">
