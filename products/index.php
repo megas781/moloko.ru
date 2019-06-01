@@ -24,23 +24,62 @@ echo '</pre>';
 ?>
 
 
-        <div class="search-form" action="" >
+        <form class="search-form" action="" method="get">
             <div class="select-input">
-                <label for="locality">Искать ближе к:</label>
-                <select name="locality" id="locality">
-                    <option value="everywhere">Везде</option>
-                    <?php
+                <label for="category">Категория:</label>
+                <?php
 
-                    $cities = $APP->getCities();
+                $categories = [
+                    'all' => ['Все', 0],
+                    'milk' => ['Молоко', 1],
+                    'sour_cream' => ['Сметана', 2],
+                    'butter' => ['Масло', 3],
+                    'cream' => ['Сливки', 4],
+                    'cottage_cheese' => ['Творог', 5],
+                    'kefir' => ['Кефир', 6],
+                    'ryazhenka' => ['Ряженка', 7],
+                    'cheese' => ['Сыр', 8],
+                    'yogurt' => ['Йогурт',9],
+                ];
 
-                    foreach ($cities as $city) {
-                        echo "<option>".$city['city']."</option>";
+                if (isset($_GET['category'])) {
+                    //Если в php есть данная категория
+                    if (isset($categories[$_GET['category']])) {
+                        $category = $_GET['category'];
+                    } else {
+                        //Если не распознает, какая категория, то ставит дефолтную категорию all
+                        $category = 'all';
                     }
-                    ?>
+                } else {
+                    $category = 'all';
+                }
+
+                $sorts = [
+                    'new' => ['Сначала новые', 0],
+                    'cheap' => ['Сначала дешевые', 1],
+                    'expensive' => ['Сначала дорогие', 2],
+                ];
+
+                if (isset($_GET['sort'])) {
+                    if (isset($sorts[$_GET['sort']])) {
+                        $sort = $_GET['sort'];
+                    } else {
+                        //Если не распознает, какая категория, то ставит дефолтную категорию all
+                        $sort = 'new';
+                    }
+                } else {
+                    $sort = 'new';
+                }
+
+                ?>
+                <select name="category" id="category">
+                    <?php foreach ($categories as $key => $value): ?>
+                        <option value="<?php echo $key ?>" <?php if ($category === $key) echo 'selected' ?>><?php echo $value[0] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="select-input">
-                <label for="locality">Сортировать:</label>
+                <label for="category">Сортировать:</label>
                 <select name="locality" id="locality">
                     <option value="moskva">Сначала новые</option>
                     <option value="slusaryovo">Сначала дорогие</option>
@@ -51,7 +90,7 @@ echo '</pre>';
                 <input class="search-textbox" type="text" placeholder="Поиск по сайту...">
                 <input type="submit" value="Искать">
             </div>
-        </div>
+        </form>
         <div class="products">
             <?php $APP->printArrayOfProducts($APP->getProducts()) ?>
         </div>

@@ -71,16 +71,33 @@ class App {
         " . $options)->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProducts($count = 0, $randomized = false) {
+    public function getProducts($count = 0, $sort = 'new', $category = 'all') {
 
+        $optionString = '';
 
-        if ($randomized) {
-            $options = ' order by Rand()';
-        } else {
-            $options = '';
+        if ($category !== 'all' and is_string($category)) {
+            $optionString .= ' where p.category = "' . $category . '"';
         }
-        if ($count != 0) {
-            $options .= ' limit ' . $count;
+
+        switch ($sort){
+            case 'new':
+                $optionString .= ' order by p.product_id desc';
+                break;
+            case 'cheap':
+                $optionString .= ' order by p.price asc';
+                break;
+            case 'expensive':
+                $optionString .= ' order by p.price desc';
+                break;
+            case 'random':
+                $optionString .= ' order by Rand()';
+                break;
+            default:
+                break;
+        }
+
+        if ($count > 0 and is_integer($count)) {
+            $optionString .= ' limit ' . $count;
         }
 
 
@@ -89,8 +106,9 @@ class App {
             join seller_to_products stp on p.product_id = stp.product_id 
             join sellers s on stp.seller_id = s.seller_id 
             join villages v on s.village_id = v.village_id
-        " . $options)->fetch_all(MYSQLI_ASSOC);
+        " . $optionString)->fetch_all(MYSQLI_ASSOC);
     }
+
     public function getProductsBySellerId($seller_id) {
         return $this->conn->query("
         select * from (select * from sellers where seller_id = " . $seller_id . ") s 
