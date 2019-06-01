@@ -77,9 +77,20 @@ document.querySelector('#validate-order-button').addEventListener('click', funct
                 cart: getCart()
             },
             success: function (responseText, status, jqXHR) {
-                console.log(`one: ${responseText}`);
-                console.log(`two: ${status}`);
-                console.log(`tre: ${jqXHR}`);
+                // console.log(`one: ${responseText}`);
+                // console.log(`two: ${status}`);
+                // console.log(`tre: ${jqXHR}`);
+
+                switch (status) {
+                    case 'success':
+                        localStorage.setItem('cart', '{}');
+                        localStorage.setItem('prices', '{}');
+                        localStorage.setItem('success', 'true');
+                        location.assign('http://' + location.hostname + '/cart/order/success/');
+                        //Еще нужно после заказа отчистить корзину
+                        //.....
+                        break;
+                }
             }
         }
     );

@@ -11,9 +11,10 @@ $APP->includeHeaderWithParams($metainfo);
 
 ?>
 <script>
-    // Проверяем, чтобы при входе на страницу success корзина не была пуста (надо нужна другая, более правильная проверка)
-    if (getCartLength() === 0) {
-        location.replace('http://' + location.hostname + '/cart/');
+    if (localStorage.getItem('success') !== 'true') {
+        location.assign('http://' + location.hostname + '/cart');
+    } else {
+        localStorage.setItem('success', 'false');
     }
 </script>
 
