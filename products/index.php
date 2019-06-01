@@ -14,7 +14,6 @@ $APP->includeHeaderWithParams($metainfo);
 ?>
 
 
-
 <?php
 //$conn = new mysqli('localhost','u0684531_default', 'Eo0nNox_','u0684531_moloko');
 //$cities = $conn->query("select * from mos_cities")->fetch_all();
@@ -24,76 +23,83 @@ echo '</pre>';
 ?>
 
 
-        <form class="search-form" action="" method="get">
-            <div class="select-input">
-                <label for="category">Категория:</label>
-                <?php
+    <form class="search-form" action="" method="get">
+        <div class="select-input">
+            <label for="category">Категория:</label>
+            <?php
 
-                $categories = [
-                    'all' => ['Все', 0],
-                    'milk' => ['Молоко', 1],
-                    'sour_cream' => ['Сметана', 2],
-                    'butter' => ['Масло', 3],
-                    'cream' => ['Сливки', 4],
-                    'cottage_cheese' => ['Творог', 5],
-                    'kefir' => ['Кефир', 6],
-                    'ryazhenka' => ['Ряженка', 7],
-                    'cheese' => ['Сыр', 8],
-                    'yogurt' => ['Йогурт',9],
-                ];
+            //массив, с помощью которого опции категорий подгружаются динамически
+            $categories = [
+                'all' => ['Все', 0],
+                'milk' => ['Молоко', 1],
+                'sour_cream' => ['Сметана', 2],
+                'butter' => ['Масло', 3],
+                'cream' => ['Сливки', 4],
+                'cottage_cheese' => ['Творог', 5],
+                'kefir' => ['Кефир', 6],
+                'ryazhenka' => ['Ряженка', 7],
+                'cheese' => ['Сыр', 8],
+                'yogurt' => ['Йогурт', 9],
+            ];
 
-                if (isset($_GET['category'])) {
-                    //Если в php есть данная категория
-                    if (isset($categories[$_GET['category']])) {
-                        $category = $_GET['category'];
-                    } else {
-                        //Если не распознает, какая категория, то ставит дефолтную категорию all
-                        $category = 'all';
-                    }
+            //Извлечение категории
+            if (isset($_GET['category'])) {
+                //Если в php есть данная категория
+                if (isset($categories[$_GET['category']])) {
+                    $category = $_GET['category'];
                 } else {
+                    //Если не распознает, какая категория, то ставит дефолтную категорию all
                     $category = 'all';
                 }
+            } else {
+                $category = 'all';
+            }
 
-                $sorts = [
-                    'new' => ['Сначала новые', 0],
-                    'cheap' => ['Сначала дешевые', 1],
-                    'expensive' => ['Сначала дорогие', 2],
-                ];
+            ?>
+            <select name="category" id="category">
+                <?php foreach ($categories as $key => $value): ?>
+                    <option value="<?php echo $key ?>" <?php if ($category === $key) echo 'selected' ?>><?php echo $value[0] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="select-input">
+            <label for="category">Сортировка:</label>
+            <?php
 
-                if (isset($_GET['sort'])) {
-                    if (isset($sorts[$_GET['sort']])) {
-                        $sort = $_GET['sort'];
-                    } else {
-                        //Если не распознает, какая категория, то ставит дефолтную категорию all
-                        $sort = 'new';
-                    }
+            //массив, с помощью которого опции сортировки подгружаются динамически
+            $sorts = [
+                'new' => ['Сначала новые', 0],
+                'cheap' => ['Сначала дешевые', 1],
+                'expensive' => ['Сначала дорогие', 2],
+            ];
+
+            //Извлечение сортировки
+            if (isset($_GET['sort'])) {
+                if (isset($sorts[$_GET['sort']])) {
+                    $sort = $_GET['sort'];
                 } else {
+                    //Если не распознает, какая категория, то ставит дефолтную категорию all
                     $sort = 'new';
                 }
+            } else {
+                $sort = 'new';
+            }
 
-                ?>
-                <select name="category" id="category">
-                    <?php foreach ($categories as $key => $value): ?>
-                        <option value="<?php echo $key ?>" <?php if ($category === $key) echo 'selected' ?>><?php echo $value[0] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="select-input">
-                <label for="category">Сортировать:</label>
-                <select name="locality" id="locality">
-                    <option value="moskva">Сначала новые</option>
-                    <option value="slusaryovo">Сначала дорогие</option>
-                    <option value="kotelniky">Сначала дешевые</option>
-                </select>
-            </div>
-            <div class="search-input">
-                <input class="search-textbox" type="text" placeholder="Поиск по сайту...">
-                <input type="submit" value="Искать">
-            </div>
-        </form>
-        <div class="products">
-            <?php $APP->printArrayOfProducts($APP->getProducts()) ?>
+            ?>
+            <select name="sort" id="sort">
+                <?php foreach ($sorts as $key => $value): ?>
+                    <option value="<?php echo $key ?>" <?php if ($key === $sort) echo 'selected'?>><?php echo $value[0] ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
+        <div class="search-input">
+            <input class="search-textbox" type="text" placeholder="Поиск по сайту...">
+            <input type="submit" value="Искать">
+        </div>
+    </form>
+    <div class="products">
+        <?php $APP->printArrayOfProducts($APP->getProducts()) ?>
+    </div>
 
 
-            <?php $APP->includeFooterWithParams($metainfo); ?>
+<?php $APP->includeFooterWithParams($metainfo); ?>

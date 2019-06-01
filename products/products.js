@@ -17,12 +17,15 @@ if (url.searchParams.get('sort')) {
 //Обновление станицы при изменении категории
 document.getElementById('category').addEventListener('change', function () {
     let categoryString = this.options[this.selectedIndex].value;
-
     //Эту проверку можно не делать, т.к. событие не обрабатывается, если параметр остался тем же
-    // if (lastCategory !== categoryString) {
         location.assign('http://' + location.hostname + `/products?category=${categoryString}&sort=${lastSort}`);
         lastCategory = categoryString;
-    // }
+});
+
+document.getElementById('sort').addEventListener('change', function () {
+    let sortString = this.options[this.selectedIndex].value;
+    location.assign('http://' + location.hostname + `/products?category=${lastCategory}&sort=${sortString}`);
+    lastSort = sortString;
 });
 
 
