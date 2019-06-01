@@ -262,11 +262,18 @@ class App {
 
 
     //inserting and updating data
-    public function addOrder($fio, $address, $phoneNumber, $paymentMethod, $orderedProducts) {
+    public function addOrder($fio, $address, $phoneNumber, $paymentMethod, $orderComment, $orderedProducts) {
+
+        //Фиксим orderComment
+//        if (!$orderComment) {
+//            $orderComment = 'null';
+//        } else {
+//            $orderComment = '"' . $orderComment . '"';
+//        }
 
         $this->performSqlQuery('start transaction; ');
         $this->performSqlQuery('
-        insert into stored_orders (fio, address, phone_number, payment_method, order_datetime) VALUE ("'.$fio.'", "'.$address.'", "'.$phoneNumber.'", "'.$paymentMethod.'", NOW())
+        insert into stored_orders (fio, address, phone_number, payment_method, order_comment, order_datetime) VALUE ("'.$fio.'", "'.$address.'", "'.$phoneNumber.'", "'.$paymentMethod.'", "'.$orderComment.'", NOW())
         ');
 
         //Здесь мы костылями достаём id только что добавленного заказа

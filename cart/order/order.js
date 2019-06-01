@@ -3,6 +3,7 @@ let address = document.getElementById('address');
 let phoneNumber = document.getElementById('phone-number');
 let paymentMethod = document.querySelector('input[name="payment-method"][checked]');
 let privacyPolicyArgeement = document.getElementById('privacy-agreement-checkbox');
+let orderComment = document.getElementById('order-comment');
 
 //Подгрузка суммы заказа
 function orderRecalculateSumup() {
@@ -74,6 +75,7 @@ document.querySelector('#validate-order-button').addEventListener('click', funct
                 phoneNumber: phoneNumber.value,
                 paymentMethod: paymentMethod.value,
                 privacyPolicyArgeement: privacyPolicyArgeement.checked,
+                orderComment: orderComment.value,
                 cart: getCart()
             },
             success: function (responseText, status, jqXHR) {

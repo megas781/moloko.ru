@@ -61,9 +61,17 @@ if (isset($_POST['cart']) and is_array($_POST['cart']) and count($_POST['cart'])
     return;
 }
 
+//Достаём необязательный комментарий
+if (isset($_POST['orderComment'])) {
+    $orderComment = htmlspecialchars($_POST['orderComment']);
+} else {
+    //на всякий случай. При исправной работе $_POST['orderComment'] всегда существует (по крайней мере '')
+    $orderComment = '';
+}
+
 //Сначала добавляем заказ в таблицу
 
-$APP->addOrder($fio,$address,$phoneNumber,$paymentMethod, $cart);
+$APP->addOrder($fio,$address,$phoneNumber,$paymentMethod, $orderComment, $cart);
 
 
 //foreach ($cart as $productId => $quantity) {
