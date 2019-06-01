@@ -5,6 +5,7 @@ $metainfo = [
     'style_path' => HTTP_ROOT . 'sellers/sellers.css',
     'page_id' => 'sellers',
     'page_title' => 'Продавцы',
+    'script_path' => HTTP_ROOT . 'sellers/sellers.js'
 ];
 
 $APP->includeHeaderWithParams($metainfo);
@@ -13,16 +14,15 @@ $APP->includeHeaderWithParams($metainfo);
 
 <div class="search-form" action="" >
     <div class="select-input">
-        <label for="locality">Искать ближе к:</label>
+        <label for="locality">Ближе к:</label>
         <select name="locality" id="locality">
-            <option value="moskva">Везде</option>
-<!--            <option value="moskva">Москва</option>-->
+            <option value="no-matter">Не важно</option>
             <?php
 
             $cities = $APP->getCities();
 
             foreach ($cities as $city) {
-                echo "<option>".$city['city']."</option>";
+                echo "<option value='".$city['city_id']."'>".$city['city']."</option>";
             }
             ?>
         </select>
@@ -54,4 +54,4 @@ $APP->includeHeaderWithParams($metainfo);
 </div>
 
 
-<?php $APP->includeFooterWithParams(); ?>
+<?php $APP->includeFooterWithParams($metainfo); ?>

@@ -51,7 +51,13 @@ class App {
     public function getCities() {
         return $this->conn->query("select * from mos_cities")->fetch_all(MYSQLI_ASSOC);
     }
-
+    public function getCityById($id) {
+        if (preg_match('~^\d+$~',$id)) {
+            return $this->performSqlQuery('select * from mos_cities where city_id = ' . $id)->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
 
     public function getSellers($count = 0, $randomized = false) {
 

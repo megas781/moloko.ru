@@ -15,11 +15,7 @@ $APP->includeHeaderWithParams($metainfo);
 
 
 <?php
-//$conn = new mysqli('localhost','u0684531_default', 'Eo0nNox_','u0684531_moloko');
-//$cities = $conn->query("select * from mos_cities")->fetch_all();
-echo '<pre>';
-//print_r(array_reverse($cities));
-echo '</pre>';
+
 ?>
 
 
