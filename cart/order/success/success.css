@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.success-text {
+    margin-top: 0;
+    margin-bottom: 70px;
+}
+
 .back-to-products-link {
 
 }

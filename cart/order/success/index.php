@@ -21,6 +21,11 @@ $APP->includeHeaderWithParams($metainfo);
 <h1 class="success-label">Ваш заказ успешно оформлен!</h1>
 
 <div class="flex-centering">
+    <p class="success-text">
+        В течение 10 минут вам перезвонят, чтобы подтвердить заказ.
+    </p>
+</div>
+<div class="flex-centering">
     <a href="/products/" class="back-to-products-link">Вернуться к списку товаров</a>
 </div>
 
