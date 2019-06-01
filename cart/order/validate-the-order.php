@@ -61,8 +61,13 @@ if (isset($_POST['cart']) and is_array($_POST['cart']) and count($_POST['cart'])
     return;
 }
 
-foreach ($cart as $productId => $quantity) {
+//Сначала добавляем заказ в таблицу
+
+$APP->addOrder($fio,$address,$phoneNumber,$paymentMethod, $cart);
 
 
-
-}
+//foreach ($cart as $productId => $quantity) {
+//
+//
+//
+//}

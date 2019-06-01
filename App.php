@@ -25,8 +25,7 @@ class App {
 
 
     public function performSqlQuery($query) {
-
-        $this->conn->query($query);
+        return $this->conn->query($query);
     }
     //универсальный fetcher данных
     public function fetchAssocData($query) {
@@ -257,6 +256,39 @@ class App {
             </div>
         </section>
         <?php
+    }
+
+
+
+
+    //inserting and updating data
+    public function addOrder($fio, $address, $phoneNumber, $paymentMethod, $orderedProducts) {
+
+        $this->performSqlQuery('start transaction; ');
+        $this->performSqlQuery('
+        insert into stored_orders (fio, address, phone_number, payment_method, order_datetime) VALUE ("'.$fio.'", "'.$address.'", "'.$phoneNumber.'", "'.$paymentMethod.'", NOW())
+        ');
+
+        //Здесь мы костылями достаём id только что добавленного заказа
+        $orderId = $this->performSqlQuery('select LAST_INSERT_ID()')->fetch_array()[0];
+        //Начинаем собирать insert запрос
+        $insertProductsQuery = 'insert into orders_to_products (order_id, product_id, quantity) values ';
+        $k = -1;
+        foreach ($orderedProducts as $orderedProductId => $quantity) {
+            $k++;
+            if ($k === 0) {
+                $insertProductsQuery .= '('.$orderId.','.$orderedProductId.','.$quantity.')';
+            } else {
+                $insertProductsQuery .= ', ('.$orderId.','.$orderedProductId.','.$quantity.')';
+            }
+        }
+        $this->performSqlQuery($insertProductsQuery);
+
+        $this->performSqlQuery('commit;');
+//        $fetchedProds = $this->performSqlQuery('select * from orders_to_products')->fetch_all(MYSQLI_ASSOC);
+//        print_r($fetchedProds);
+
+//        $this->performSqlQuery('rollback;');
     }
 }
 
