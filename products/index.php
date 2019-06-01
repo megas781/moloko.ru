@@ -98,7 +98,7 @@ echo '</pre>';
         </div>
     </form>
     <div class="products">
-        <?php $APP->printArrayOfProducts($APP->getProducts()) ?>
+        <?php $APP->printArrayOfProducts($APP->getProducts(0, $sort, $category)) ?>
     </div>
 
 

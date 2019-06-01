@@ -81,7 +81,7 @@ class App {
 
         switch ($sort){
             case 'new':
-                $optionString .= ' order by p.product_id desc';
+                $optionString .= ' order by p.product_id';
                 break;
             case 'cheap':
                 $optionString .= ' order by p.price asc';
