@@ -45,7 +45,7 @@ $APP->includeHeaderWithParams($metainfo);
         <td>3</td>
         <td>Римма Семирханова</td>
         <td>181-361</td>
-        <td>контент-менеджер, главный бухгалтер</td>
+        <td>главный бухгалтер</td>
         <td><a href="https://vk.com/rimmahka" target="_blank">rimmahka</a></td>
     </tr>
     <tr>
@@ -66,7 +66,7 @@ $APP->includeHeaderWithParams($metainfo);
         <td>6</td>
         <td>Павел Еремин</td>
         <td>181-321</td>
-        <td>верстальщик</td>
+        <td>Контент-менеджер</td>
         <td><a href="https://vk.com/id223867115" target="_blank">id223867115</a></td>
     </tr>
 </table>
