@@ -34,11 +34,26 @@ h1, h2, h3, h4, h5, h6 {
 
 label {
     user-select: none;
+    white-space: nowrap;
 }
 
 input {
     font-size: 16px;
 }
+
+select {
+    outline: none;
+    border: 1px solid lightgray;
+    background-color: #f7f7f7;
+    border-radius: 0;
+    font-size: 1rem;
+    display: inline-block;
+    margin-left: 8px;
+    width: 100%;
+
+    font-family: Roboto;
+}
+
 
 input[type=radio] {
     position: relative;

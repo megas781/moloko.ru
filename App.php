@@ -122,6 +122,9 @@ class App {
             join products p on stp.product_id = p.product_id
         ")->fetch_all(MYSQLI_ASSOC);
     }
+    public function getProductsByOrderId($order_id) {
+        return $this->conn->query('select * from products_by_order where order_id = ' . $order_id . ';')->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function getProductById($id) {
         return $this->conn->query("
@@ -138,8 +141,9 @@ class App {
     }
 
     public function getOrders() {
-        return $this->conn->query('select * from orders')->fetch_all(MYSQLI_ASSOC);
+        return $this->conn->query('select * from stored_orders order by order_id desc')->fetch_all(MYSQLI_ASSOC);
     }
+
     public function getOrderById($id) {
         return $this->conn->query('select * from orders where order_id = ' . $id . ';')->fetch_assoc();
     }
@@ -225,7 +229,7 @@ class App {
     }
 
     public function printThreeRandomProducts() {
-        $this->printArrayOfProducts($this->getProducts(3, true));
+        $this->printArrayOfProducts($this->getProducts(3, 'random'));
     }
     public function printThreeRandomSellers() {
         $this->printArrayOfSellers($this->getSellers(3, true));
@@ -299,10 +303,6 @@ class App {
         $this->performSqlQuery($insertProductsQuery);
 
         $this->performSqlQuery('commit;');
-//        $fetchedProds = $this->performSqlQuery('select * from orders_to_products')->fetch_all(MYSQLI_ASSOC);
-//        print_r($fetchedProds);
-
-//        $this->performSqlQuery('rollback;');
     }
 }
 

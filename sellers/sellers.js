@@ -18,6 +18,7 @@ function formatDescription(string) {
 let localitySelect = document.getElementById('locality');
 
 localitySelect.addEventListener('change', function () {
+
     $.ajax(
         {
             type: 'GET',

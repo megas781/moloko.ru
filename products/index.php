@@ -88,12 +88,13 @@ $APP->includeHeaderWithParams($metainfo);
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="search-input">
-            <input class="search-textbox" type="text" placeholder="Поиск по сайту...">
-            <input type="submit" value="Искать">
-        </div>
+        <!--    Поставил под сомнение надобность текстового поиска на странице товаров-->
+        <!--        <div class="search-input">-->
+<!--            <input class="search-textbox" type="text" placeholder="Поиск по сайту...">-->
+<!--            <input type="submit" value="Искать">-->
+<!--        </div>-->
     </form>
-    <div class="products">
+    <div class="order-products">
         <?php $APP->printArrayOfProducts($APP->getProducts(0, $sort, $category)) ?>
     </div>
 

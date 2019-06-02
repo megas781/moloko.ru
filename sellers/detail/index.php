@@ -63,7 +63,7 @@ $APP->includeHeaderWithParams($metainfo);
 //echo '</pre>';
 ?>
 
-<div class="products">
+<div class="order-products">
 <?php $APP->printArrayOfProducts($APP->getProductsBySellerId($_GET['seller_id'])) ?>
 </div>
 

@@ -28,10 +28,11 @@ $APP->includeHeaderWithParams($metainfo);
         </select>
     </div>
     <div></div>
-    <div class="search-input">
-        <input class="search-textbox" type="text" placeholder="Поиск по сайту...">
-        <input type="submit" value="Искать">
-    </div>
+
+        <div class="search-input">
+            <input class="search-textbox" type="text" placeholder="Поиск по сайту...">
+            <input type="submit" value="Искать">
+        </div>
 </div>
 <div class="sellers" id="sellers">
 
