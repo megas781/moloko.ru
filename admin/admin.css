@@ -32,18 +32,22 @@
 
 
 
-.order-products {
+.admin-order-products {
     border-collapse: collapse;
     width: 100%;
 }
-.order-products th {
+.admin-order-products th {
     text-align: left;
 }
-.order-products tr {
+.admin-order-products tr {
     background-color: #f7f7f7;
 }
-.order-products td, .order-products th {
+.admin-order-products td, .admin-order-products th {
     padding: 8px 16px;
+}
+.admin-order-products td > a {
+    text-decoration: none;
+    color: black;
 }
 
 .product {
@@ -75,4 +79,14 @@
 
 .product-subtotal {
     font-size: 22px;
+}
+
+
+
+
+
+/*Form*/
+#enter-button {
+    line-height: 34px;
+    width: 100%;
 }

@@ -71,6 +71,7 @@
 
     //Добавляем корзину в $navItems после генерации панели навигации. Теперь корзина будет отображаться в хлебных крошках
     $navItems['cart'] = ['Корзина'];
+$navItems['admin'] = ['Администрационная панель'];
     ?>
 <div class="breadcrumbs">
     <a class="breadcrumb-item first" href="">Главная</a>

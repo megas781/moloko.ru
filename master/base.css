@@ -1,6 +1,9 @@
 /*Roboto Condensed*/
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400&subset=cyrillic');
+/*@import "fonts/Roboto/roboto.css";*/
+/*@import "fonts/Roboto_Condensed/roboto-condensed.css";*/
+
 /*Roboto*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic');
 @import "header.css";
 @import "footer.css";
@@ -9,7 +12,7 @@
 
 @font-face {
     font-family: 'Pacifico';
-    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('pacifico/Pacificoregular.woff2') format('woff2'), url('pacifico/Pacificoregular.woff') format('woff'), url('pacifico/Pacificoregular.ttf') format('truetype');
+    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('fonts/pacifico/Pacificoregular.woff2') format('woff2'), url('fonts/pacifico/Pacificoregular.woff') format('woff'), url('fonts/pacifico/Pacificoregular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -59,8 +62,13 @@ input[type=radio] {
     position: relative;
     bottom: 2px;
 }
-input[type=text] {
+input[type=text], input[type=password] {
     padding: 4px 4px;
+}
+
+input[type=checkbox] {
+    position: relative;
+    bottom: 3px;
 }
 
 textarea {

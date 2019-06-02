@@ -94,7 +94,7 @@ $APP->includeHeaderWithParams($metainfo);
 <!--            <input type="submit" value="Искать">-->
 <!--        </div>-->
     </form>
-    <div class="order-products">
+    <div class="products">
         <?php $APP->printArrayOfProducts($APP->getProducts(0, $sort, $category)) ?>
     </div>
 

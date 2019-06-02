@@ -37,7 +37,7 @@ $APP->includeHeaderWithParams($metainfo);
 </div>
 
 <h2 class="cell-container-title">Товары</h2>
-<div class="order-products">
+<div class="products">
     <?php $APP->printThreeRandomProducts(); ?>
 </div>
 <a class="more-detail" href="/products">Все товары</a>

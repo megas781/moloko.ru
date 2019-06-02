@@ -100,7 +100,7 @@ echo '</pre>';
 </script>
 
 <h2 class="other-products-title">Другие товары</h2>
-<div class="order-products">
+<div class="products">
     <?php $APP->printThreeRandomProducts() ?>
 </div>
 
