@@ -1,10 +1,10 @@
 /*Roboto Condensed*/
-/*@import "fonts/Roboto/roboto.css";*/
-/*@import "fonts/Roboto_Condensed/roboto-condensed.css";*/
+@import "fonts/Roboto/roboto.css";
+@import "fonts/Roboto_Condensed/roboto-condensed.css";
 
 /*Roboto*/
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400&subset=cyrillic');*/
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic');*/
 @import "header.css";
 @import "footer.css";
 @import "form-styles/product-card.css";
