@@ -172,7 +172,7 @@ class App
 
     public function getPageMetaByPath($path)
     {
-        return $this->performSqlQuery('select * from page_meta where page_path = "/products/"')->fetch_assoc();
+        return $this->performSqlQuery('select * from page_meta where page_path = "'.$path.'" ')->fetch_assoc();
     }
 
     //Working with strings
