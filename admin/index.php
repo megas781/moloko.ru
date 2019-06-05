@@ -32,9 +32,11 @@ if (isset($_POST['login']) and
 
             ?>
             <div class="order">
-                <input type="hidden" class="order-id" value="<?php echo $order['order_id']?>">
-                <h3 class="order-title"><input class="confirm-checkbox" type="checkbox" <?php echo $order['confirmed'] == true ? 'checked' : '' ?>>Заказ #<?php echo $order['order_id'] ?>
-                    — <?php echo $order['order_datetime'] ?></h3>
+                <input type="hidden" class="order-id" value="<?php echo $order['order_id'] ?>">
+                <h3 class="order-title"><input class="confirm-checkbox"
+                                               type="checkbox" <?php echo $order['confirmed'] == true ? 'checked' : '' ?>>Заказ
+                    #<?php echo $order['order_id'] ?>
+                    — <?php echo $order['order_datetime'] ?>,<br> тел. <?php echo $order['phone_number'] ?> - <?php echo $order['name'] . $order['fio'] ?></h3>
 
                 <table class="admin-order-products">
                     <tbody>
@@ -58,7 +60,9 @@ if (isset($_POST['login']) and
                         <tr>
                             <td><?php $itemCount++;
                                 echo $itemCount ?></td>
-                            <td><a href="<?php echo HTTP_ROOT . $orderProduct['product_id'] ?>"><?php echo $orderProduct['title'] ?></a></td>
+                            <td>
+                                <a href="<?php echo HTTP_ROOT . $orderProduct['product_id'] ?>"><?php echo $orderProduct['title'] ?></a>
+                            </td>
                             <td><?php echo $orderProduct['volume'] ?> л</td>
                             <td><?php echo $orderProduct['price'] ?> руб</td>
                             <td><?php echo $orderProduct['quantity'] ?></td>
@@ -97,7 +101,7 @@ if (isset($_POST['login']) and
     </div>
 
 <?php else: ?>
-<!--Форма входа на страницу-->
+    <!--Форма входа на страницу-->
 
     <form action="index.php" method="post">
 
@@ -113,11 +117,13 @@ if (isset($_POST['login']) and
                     document.getElementById('password').focus();
                 </script>
             </tr>
-            <tr><td colspan="2"><input type="submit" class="blue-button" id="enter-button"></td></tr>
+            <tr>
+                <td colspan="2"><input type="submit" class="blue-button" id="enter-button"></td>
+            </tr>
         </table>
-        
+
     </form>
 
 <?php endif; ?>
 
-    <?php $APP->includeFooterWithParams($metainfo); ?>
+<?php $APP->includeFooterWithParams($metainfo); ?>
