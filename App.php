@@ -3,7 +3,8 @@
 define('ROOT', dirname(__FILE__) . '/');
 define('HTTP_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 
-class App {
+class App
+{
 
     protected static $_instance;
 
@@ -14,32 +15,40 @@ class App {
     {
 
     }
-    public static function getInstance() {
+
+    public static function getInstance()
+    {
         if (self::$_instance == null) {
             self::$_instance = new self();
         }
-        self::$_instance->conn = new mysqli('localhost','u0684531_default', 'Eo0nNox_','u0684531_moloko');
+        self::$_instance->conn = new mysqli('localhost', 'u0684531_default', 'Eo0nNox_', 'u0684531_moloko');
         self::$_instance->conn->set_charset('utf8');
         return self::$_instance;
     }
 
 
-    public function performSqlQuery($query) {
+    public function performSqlQuery($query)
+    {
         return $this->conn->query($query);
     }
+
     //универсальный fetcher данных
-    public function fetchAssocData($query) {
+    public function fetchAssocData($query)
+    {
         return $this->conn->query($query)->fetch_all(MYSQLI_ASSOC);
     }
 
     //importing
-    public function includeHeaderWithParams($params = []) {
+    public function includeHeaderWithParams($params = [])
+    {
 
         //Здесь как бы должен быть include header'a, а params – это словарь с данными
         require_once ROOT . 'master/header.php';
 
     }
-    public function includeFooterWithParams($params = []) {
+
+    public function includeFooterWithParams($params = [])
+    {
 
         //Здесь как бы должен быть include footer'a, а params – это словарь с данными
         require_once ROOT . 'master/footer.php';
@@ -48,18 +57,22 @@ class App {
 
 
     //fetching data
-    public function getCities() {
+    public function getCities()
+    {
         return $this->conn->query("select * from mos_cities")->fetch_all(MYSQLI_ASSOC);
     }
-    public function getCityById($id) {
-        if (preg_match('~^\d+$~',$id)) {
+
+    public function getCityById($id)
+    {
+        if (preg_match('~^\d+$~', $id)) {
             return $this->performSqlQuery('select * from mos_cities where city_id = ' . $id)->fetch_assoc();
         } else {
             return null;
         }
     }
 
-    public function getSellers($count = 0, $randomized = false) {
+    public function getSellers($count = 0, $randomized = false)
+    {
 
         if ($randomized) {
             $options = ' order by Rand()';
@@ -76,7 +89,8 @@ class App {
         " . $options)->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProducts($count = 0, $sort = 'new', $category = 'all') {
+    public function getProducts($count = 0, $sort = 'new', $category = 'all')
+    {
 
         $optionString = '';
 
@@ -84,7 +98,7 @@ class App {
             $optionString .= ' where p.category = "' . $category . '"';
         }
 
-        switch ($sort){
+        switch ($sort) {
             case 'new':
                 $optionString .= ' order by p.product_id';
                 break;
@@ -114,7 +128,8 @@ class App {
         " . $optionString)->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProductsBySellerId($seller_id) {
+    public function getProductsBySellerId($seller_id)
+    {
         return $this->conn->query("
         select * from (select * from sellers where seller_id = " . $seller_id . ") s 
             join seller_to_products stp on s.seller_id = stp.seller_id 
@@ -122,11 +137,14 @@ class App {
             join products p on stp.product_id = p.product_id
         ")->fetch_all(MYSQLI_ASSOC);
     }
-    public function getProductsByOrderId($order_id) {
+
+    public function getProductsByOrderId($order_id)
+    {
         return $this->conn->query('select * from products_by_order where order_id = ' . $order_id . ';')->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProductById($id) {
+    public function getProductById($id)
+    {
         return $this->conn->query("
         select * from (select * from products where product_id = " . $id . ") p
                join seller_to_products stp on p.product_id = stp.product_id
@@ -134,42 +152,61 @@ class App {
                join villages v on s.village_id = v.village_id
         ")->fetch_assoc();
     }
-    public function getSellerById($id) {
+
+    public function getSellerById($id)
+    {
         return $this->conn->query("
         select * from (select * from sellers where seller_id = " . $id . ") s join villages v on s.village_id = v.village_id; 
         ")->fetch_assoc();
     }
 
-    public function getOrders() {
+    public function getOrders()
+    {
         return $this->conn->query('select * from stored_orders order by order_id desc')->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOrderById($id) {
+    public function getOrderById($id)
+    {
         return $this->conn->query('select * from orders where order_id = ' . $id . ';')->fetch_assoc();
     }
 
+    public function getPageMetaByPath($path)
+    {
+        return $this->performSqlQuery('select * from page_meta where page_path = "/products/"')->fetch_assoc();
+    }
+
     //Working with strings
-    public function formatDescription($string) {
+    public function formatDescription($string)
+    {
         $returnValue;
-        preg_match('~^.{80,100} ~u',$string,$matches);
+        preg_match('~^.{80,100} ~u', $string, $matches);
 
         $returnValue = $matches[0];
-        $returnValue = mb_substr($returnValue,0,strlen($returnValue) - 2) . '...';
+        $returnValue = mb_substr($returnValue, 0, strlen($returnValue) - 2) . '...';
 
         return $returnValue;
 
     }
 
     //View controlling
-    public function printProductCell($item) {
+    public function printProductCell($item)
+    {
 
         ?>
         <section class="product-card">
-            <a href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-card-image" src="<?php echo $item['image_url'] ?>" alt="image"></a>
-            <a class="product-card-title" href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
-            <p class="product-card-desc">Объем <?php echo $item['volume'] ?>, энергетическая ценность <?php echo $item['energy_value']?>, белки <?php echo $item['squirrels'] ?> г, жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
+            <a href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><img class="product-card-image"
+                                                                                          src="<?php echo $item['image_url'] ?>"
+                                                                                          alt="image"></a>
+            <a class="product-card-title"
+               href="/products/detail/?product_id=<?php echo $item['product_id'] ?>"><?php echo $item['title'] ?></a>
+            <p class="product-card-desc">Объем <?php echo $item['volume'] ?>, энергетическая
+                ценность <?php echo $item['energy_value'] ?>, белки <?php echo $item['squirrels'] ?> г,
+                жиры <?php echo $item['fats'] ?> г, углеводы <?php echo $item['carbohydrates'] ?> г</p>
             <div class="the-product-detail-seller">
-                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a class="the-product-detail-seller-name-link" href="/sellers/detail/?seller_id=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a></div>
+                <div class="seller-name"><span class="selle-name-label">Продавец:</span> <a
+                            class="the-product-detail-seller-name-link"
+                            href="/sellers/detail/?seller_id=<?php echo $item['seller_id'] ?>"><?php echo $item['surname'] . ' ' . $item['name'] ?></a>
+                </div>
                 <div class="seller-locality">пос. <?php echo $item['village'] ?></div>
             </div>
             <div class="flex-space"></div>
@@ -180,12 +217,15 @@ class App {
                     <span class="stepper-number">1</span>
                     <span class="stepper-plus stepper-control">+</span>
                 </div>
-                <span class="add-to-cart-button blue-button" productId="<?php echo $item['product_id'] ?>">В корзину</span>
+                <span class="add-to-cart-button blue-button"
+                      productId="<?php echo $item['product_id'] ?>">В корзину</span>
             </div>
         </section>
         <?php
     }
-    public function printArrayOfProducts($arrayOfProducts, $count = 0) {
+
+    public function printArrayOfProducts($arrayOfProducts, $count = 0)
+    {
 
         if ($count == 0) {
             $count = count($arrayOfProducts);
@@ -200,21 +240,28 @@ class App {
     }
 
     //Важно. Существует дубликат реализация принта ячейки через js (!)
-    public function printSellerCell($seller) {
+    public function printSellerCell($seller)
+    {
         ?>
         <section class="seller-card">
-        <a href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><img class="seller-card-image" src="<?php echo $seller['avatar_url'] ?>" alt="фотография продавца"></a>
-        <a class="seller-card-name" href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
-        <div class="seller-card-locality">пос. <?php echo $seller['village'] ?></div>
-        <p class="seller-card-desc"><?php echo $this->formatDescription($seller['description']) ?></p>
-        <div class="flex-space"></div>
-        <div class="seller-card-detail-button-positioner">
-            <a href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>" class="detail-link blue-button">Подробнее</a>
-        </div>
+            <a href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><img
+                        class="seller-card-image" src="<?php echo $seller['avatar_url'] ?>"
+                        alt="фотография продавца"></a>
+            <a class="seller-card-name"
+               href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"><?php echo $seller['surname'] . ' ' . $seller['name'] ?></a>
+            <div class="seller-card-locality">пос. <?php echo $seller['village'] ?></div>
+            <p class="seller-card-desc"><?php echo $this->formatDescription($seller['description']) ?></p>
+            <div class="flex-space"></div>
+            <div class="seller-card-detail-button-positioner">
+                <a href="http://moloko.glebkalachev.ru/sellers/detail/?seller_id=<?php echo $seller['seller_id'] ?>"
+                   class="detail-link blue-button">Подробнее</a>
+            </div>
         </section>
         <?php
     }
-    public function printArrayOfSellers($arrayOfSellers, $count = 0) {
+
+    public function printArrayOfSellers($arrayOfSellers, $count = 0)
+    {
 
         if ($count == 0) {
             $count = count($arrayOfSellers);
@@ -228,14 +275,18 @@ class App {
         }
     }
 
-    public function printThreeRandomProducts() {
+    public function printThreeRandomProducts()
+    {
         $this->printArrayOfProducts($this->getProducts(3, 'random'));
     }
-    public function printThreeRandomSellers() {
+
+    public function printThreeRandomSellers()
+    {
         $this->printArrayOfSellers($this->getSellers(3, true));
     }
 
-    public function printCartProductCell($item) {
+    public function printCartProductCell($item)
+    {
         ?>
 
         <section class="product">
@@ -246,7 +297,9 @@ class App {
                 <a class="product-title" href="/products/detail/">Молоко пастеризованное 3%, 1л</a>
                 <p class="product-desc">Козье молоко (пастеризованное) 0.5л. Белок 2.8% до 3.2%. Жирность...</p>
                 <div class="seller">
-                    <div class="seller-name"><span class="selle-name-label">Продавец:</span><a class="seller-name-link" href="/sellers/detail/">Галиева Екатерина</a></div>
+                    <div class="seller-name"><span class="selle-name-label">Продавец:</span><a class="seller-name-link"
+                                                                                               href="/sellers/detail/">Галиева
+                            Екатерина</a></div>
                     <div class="seller-locality">Село Слюсарёво, МО</div>
                 </div>
             </div>
@@ -270,10 +323,9 @@ class App {
     }
 
 
-
-
     //inserting and updating data
-    public function addOrder($fio, $address, $phoneNumber, $paymentMethod, $orderComment, $orderedProducts) {
+    public function addOrder($fio, $address, $phoneNumber, $paymentMethod, $orderComment, $orderedProducts)
+    {
 
         //Фиксим orderComment
 //        if (!$orderComment) {
@@ -284,7 +336,7 @@ class App {
 
         $this->performSqlQuery('start transaction; ');
         $this->performSqlQuery('
-        insert into stored_orders (fio, address, phone_number, payment_method, order_comment, order_datetime) VALUE ("'.$fio.'", "'.$address.'", "'.$phoneNumber.'", "'.$paymentMethod.'", "'.$orderComment.'", NOW())
+        insert into stored_orders (fio, address, phone_number, payment_method, order_comment, order_datetime) VALUE ("' . $fio . '", "' . $address . '", "' . $phoneNumber . '", "' . $paymentMethod . '", "' . $orderComment . '", NOW())
         ');
 
         //Здесь мы костылями достаём id только что добавленного заказа
@@ -295,9 +347,9 @@ class App {
         foreach ($orderedProducts as $orderedProductId => $quantity) {
             $k++;
             if ($k === 0) {
-                $insertProductsQuery .= '('.$orderId.','.$orderedProductId.','.$quantity.')';
+                $insertProductsQuery .= '(' . $orderId . ',' . $orderedProductId . ',' . $quantity . ')';
             } else {
-                $insertProductsQuery .= ', ('.$orderId.','.$orderedProductId.','.$quantity.')';
+                $insertProductsQuery .= ', (' . $orderId . ',' . $orderedProductId . ',' . $quantity . ')';
             }
         }
         $this->performSqlQuery($insertProductsQuery);

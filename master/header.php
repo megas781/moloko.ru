@@ -22,6 +22,21 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=6a9a39c7-e8d9-4b7b-b568-94eb61f84ae7>&lang=ru_RU" type="text/javascript"></script>
     <script src="/master/before-load.js"></script>
 
+<!--    Подключение Метрики -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(53942956, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/53942956" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
 </head>
 <body>
 
@@ -80,7 +95,8 @@ $navItems['admin'] = ['Администрационная панель'];
 
 <h1 class="page-title wr960"><?php echo $params['page_title'] ?></h1>
 
-<?php endif; ?>
+<?php endif;
+echo $_SERVER['REQUEST_URI']?>
 
 <main class="content">
     <div class="wr960">
