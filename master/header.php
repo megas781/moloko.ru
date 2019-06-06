@@ -43,8 +43,11 @@
         <div><img src="https://mc.yandex.ru/watch/53942956" style="position:absolute; left:-9999px;" alt=""/></div>
     </noscript>
 
-    <!-- SEO -->
+<!--    Веб мастер -->
+    <meta name="yandex-verification" content="c2a8ef7034186f7f" />
 
+
+    <!-- SEO -->
     <?php
     $rawMethod = $_SERVER['REQUEST_URI'];
     preg_match('~/(?:$|[A-Za-z/_-]+\??)~', $rawMethod, $matches);
@@ -77,13 +80,7 @@
             $meta = $this->getPageMetaByPath($path);
             break;
     }
-
-//    echo '<pre>';
-//    echo 'meta;';
-//    print_r($meta);
-
     ?>
-
     <title><?php echo $meta['title'] ?></title>
     <meta name="description" content="<?php echo $meta['description'] ?>">
     <meta name="keywords" content="<?php echo $meta['keywords'] ?>">
