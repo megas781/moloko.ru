@@ -7,15 +7,25 @@
     box-shadow: 0px 2px 4px black;
     z-index: 100;
     position: relative;
+    max-font-size: 16px;
 }
 .top-bar > div {
 
-    padding: 12px 4px;
+    padding: 12px 8px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+}
+.top-bar-item {
+    text-align: center;
+}
+#top-bar-address {
+    /*text-align: left;*/
+}
+#top-bar-phone-number {
+    /*text-align: right;*/
 }
 
 
@@ -29,9 +39,9 @@
 }
 
 .logo {
-    /*margin: 32px;*/
-    margin-left: 0;
-    height: 114px;
+    /*margin-left: 0;*/
+    max-width: 100%;
+    max-height: 114px;
     display: block;
 }
 
@@ -47,7 +57,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
 }
 
 .nav-links {
@@ -57,9 +67,11 @@
     justify-content: flex-start;
 }
 .nav-item {
+    background-color: #249cd3;
     padding: 16px;
     display: inline-block;
     color: white;
+    white-space: nowrap;
     text-decoration: none;
 }
 .nav-item.active {
@@ -90,6 +102,8 @@
 .nav-cart:hover {
     background-color: #2390c2;
 }
+
+
 
 .breadcrumbs {
     padding: 16px 32px;

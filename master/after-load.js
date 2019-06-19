@@ -1,5 +1,10 @@
 //Методы, исполняемые после полной загрузки страницы
 
+//функционал бургера
+document.getElementById('menu-burger').addEventListener('click',function() {
+    console.log('conssolee!');
+    $('.js-nav-links-wrapper').slideToggle();
+});
 
 //Определение уже лежащих в корзине товаров при загрузке страницы
 document.querySelectorAll('.add-to-cart-button').forEach(function (addToCartButton) {

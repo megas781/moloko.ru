@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/base.css' ?>">
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/header.css' ?>">
+    <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/header-adaptive.css' ?>">
     <link rel="stylesheet" href="<?php echo HTTP_ROOT . 'master/footer.css' ?>">
     <link rel="stylesheet" href="<?php echo $params['style_path'] ?>">
     <!--    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">-->
@@ -43,8 +44,8 @@
         <div><img src="https://mc.yandex.ru/watch/53942956" style="position:absolute; left:-9999px;" alt=""/></div>
     </noscript>
 
-<!--    Веб мастер -->
-    <meta name="yandex-verification" content="c2a8ef7034186f7f" />
+    <!--    Веб мастер -->
+    <meta name="yandex-verification" content="c2a8ef7034186f7f"/>
 
 
     <!-- SEO -->
@@ -90,44 +91,61 @@
 
 
 <div class="top-bar">
-    <div class="wr960">
-        <span class="top-bar-item">г. Москва, 5-ая Парковая 39</span>
-        <span class="top-bar-item">Тех. Поддержка: 8 (495) 228-31-31</span>
+    <div class="wra1200">
+        <span id="top-bar-address" class="top-bar-item">г. Москва, 5-ая Парковая 39</span>
+        <span id="top-bar-phone-number" class="top-bar-item">Тех. Поддержка: 8 (495) 228-31-31</span>
     </div>
 </div>
 
 <header class="header">
-    <div class="wr960">
-        <a href="<?php echo HTTP_ROOT ?>"><img class="logo" src="<?php echo HTTP_ROOT . '/images/logo.png' ?>"
-                                               alt="logo"></a>
+    <div class="wra1200">
+        <a href="<?php echo HTTP_ROOT ?>">
+            <img class="logo" src="<?php echo HTTP_ROOT . '/images/logo.png' ?>" alt="logo">
+        </a>
     </div>
 </header>
 
 
 <nav class="nav">
-    <div class="wr960">
-        <div class="nav-links">
+    <div class="wra1200">
+        <div id="adaptive-menu">
+            <div id="menu-burger" class="blue-button nav-item">
+                <svg height="18" viewBox="0 0 20 14" preserveAspectRatio="xMaxYMax" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="20" height="2"></rect>
+                        <rect id="Rectangle-Copy" fill="#FFFFFF" x="0" y="6" width="20" height="2"></rect>
+                        <rect id="Rectangle-Copy-2" fill="#FFFFFF" x="0" y="12" width="20" height="2"></rect>
+                    </g>
+                </svg>
+            </div>
 
-            <?php
-
-            $navItems = [
-                'main' => ['Главная', 'http://moloko.glebkalachev.ru', 1],
-                'products' => ['Товары', 'http://moloko.glebkalachev.ru/products/', 2],
-                'sellers' => ['Продавцы', 'http://moloko.glebkalachev.ru/sellers', 3],
-//                'about' => ['О сайте', 'http://moloko.glebkalachev.ru/about/', 4],
-                'faq' => ['Вопрос-Ответ', 'http://moloko.glebkalachev.ru/faq/', 5],
-                'contacts' => ['Контакты', 'http://moloko.glebkalachev.ru/contacts/', 6],
-
-            ];
-
-            foreach ($navItems as $page_id => $item) {
-                echo '<a href="' . $item[1] . '" class="nav-item ' . ($params['page_id'] == $page_id ? 'active' : '') . '">' . $item[0] . '</a>';
-            }
-
-            ?>
-
+            <a id="nav-cart" class="nav-item nav-cart adaptive <?php echo($params['page_id'] == 'cart' ? 'active' : '') ?>"
+               href="http://moloko.glebkalachev.ru/cart/">Корзина</a>
         </div>
+        <div class="js-nav-links-wrapper">
+            <div class="nav-links">
 
+                <?php
+
+                $navItems = [
+                    'main' => ['Главная', 'http://moloko.glebkalachev.ru', 1],
+                    'products' => ['Товары', 'http://moloko.glebkalachev.ru/products/', 2],
+                    'sellers' => ['Продавцы', 'http://moloko.glebkalachev.ru/sellers', 3],
+                    //                'about' => ['О сайте', 'http://moloko.glebkalachev.ru/about/', 4],
+                    'faq' => ['Вопрос-Ответ', 'http://moloko.glebkalachev.ru/faq/', 5],
+                    'contacts' => ['Контакты', 'http://moloko.glebkalachev.ru/contacts/', 6],
+
+                ];
+
+                foreach ($navItems as $page_id => $item) {
+                    echo '<a href="' . $item[1] . '" class="nav-item ' . ($params['page_id'] == $page_id ? 'active' : '') . '">' . $item[0] . '</a>';
+                }
+
+                ?>
+
+            </div>
+        </div>
         <a id="nav-cart" class="nav-item nav-cart <?php echo($params['page_id'] == 'cart' ? 'active' : '') ?>"
            href="http://moloko.glebkalachev.ru/cart/">Корзина</a>
     </div>
@@ -143,7 +161,7 @@
         <span class="breadcrumb-item last"><?php echo $navItems[$params['page_id']][0] ?></span>
     </div>
 
-    <h1 class="page-title wr960"><?php echo $meta['h1'] ?></h1>
+    <h1 class="page-title wra1200"><?php echo $meta['h1'] ?></h1>
 
 <?php endif;
 //echo $_SERVER['REQUEST_URI'] . "<br>";
@@ -153,4 +171,5 @@
 ?>
 
 <main class="content">
-    <div class="wr960">
+    <div class="wra1200">
+</body>
