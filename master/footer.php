@@ -15,11 +15,8 @@ if (isset($params['script_path'])) {
 </script>
 
 <footer class="footer">
-    <div class="wr960">
+    <div class="wra1200">
         <div class="footer-links">
-<!--            <a href="/about/" class="footer-link">Услуги</a>-->
-<!--            <a href="/about/" class="footer-link">Условия сотридничества</a>-->
-<!--            <a href="/about/" class="footer-link">Лицензия</a>-->
             <a href="/" class="footer-link">О нас</a>
             <a href="/faq/" class="footer-link">Вопросы</a>
             <a href="/contacts/" class="footer-link">Контакты</a>
